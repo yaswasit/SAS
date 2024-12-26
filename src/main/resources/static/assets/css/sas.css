@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+/* Bootstrap css */
+@import url("bootstrap/bootstrap.min.css");
+
+/* Icons css */ 
+@import url("web-fonts/icons.css");
+@import url("web-fonts/font-awesome.min.css");
+@import url("web-fonts/plugin.css");
+
+/* Style */ 
+
+@import url("style.css?v=1.12");
+@import url("plugins.css");
+
+/* INTERNAL Switcher css */ 
+
+@import url("switcher/switcher.css");
+@import url("switcher/demo.css");

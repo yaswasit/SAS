@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TGSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{/assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{/assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header side-header sticky" style="margin-bottom: -64px;"> 
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left"> 
+						<div th:replace="fragments/topheader :: topheader-left"></div>
+					</div> 
+					<div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div> 
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/topheader :: topheader-right"></div>
+						
+   					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Sidemenu --> 
+  			<div class="sticky" style="margin-bottom: -64px;"> 
+  				<div class="main-menu main-sidebar main-sidebar-sticky side-menu ps ps--active-y"> 
+  					<div class="main-sidebar-header main-container-1 active"> 
+  						<div class="sidemenu-logo"> 
+  							<a class="main-logo" href="index.html"> 
+  								<img th:src="@{/assets/img/brand/tsspdcl-sas-logo.png}" class="header-brand-img desktop-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon-light.png}" class="header-brand-img icon-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/logo.png}" class="header-brand-img desktop-logo" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon.png}" class="header-brand-img icon-logo" alt="logo"> 
+  							</a> 
+  						</div> 
+  						<div class="main-sidebar-body main-body-1 is-expanded"> 
+  							<div class="slide-left disabled active d-none" id="slide-left">
+  								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24">
+  								<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+  							</div> 
+  							<div th:replace="fragments/sidenav :: sasleftnav"></div>
+  							
+							<div class="slide-right" id="slide-right">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+							</div> 
+						</div> 
+					</div> 
+					<!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+					</div>
+					<div class="ps__rail-y" style="top: 0px; right: 0px; height: 945px;">
+						<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 631px;"></div>
+					</div> -->
+				</div> 
+			</div> 
+			<!-- End Sidemenu --> 
+  			<!-- Main Content--> 
+			<div class="main-content side-content pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body"> 
+						<!-- Page Header --> 
+						<div class="page-header"> 
+							<div> 
+								<h2 class="main-content-title tx-24 mg-b-5" th:text="${pageTitle}"></h2> 
+								<ol class="breadcrumb"> 
+									<li class="breadcrumb-item"><a href="javascript:;">Home</a></li> 
+									<li class="breadcrumb-item"><a href="javascript:;">New Registrations</a></li>
+									<li class="breadcrumb-item active" aria-current="page" th:text="${pageTitle}"></li>
+								</ol>
+							</div> 
+						</div>
+						
+						<!-- End Page Header --> 
+											
+						<!--Row--> 
+						<div class="row row-sm"> 
+							<div class="col-lg-12"> 
+								
+								<div class="card custom-card"> 
+									<div class="card-header border-bottom"> 
+										<h3 class="card-title tx-18 d-flex justify-content-between align-items-center">
+											<label class="main-content-label mb-1 card-title-dark" th:text="${pageTitle}"></label>
+											<form name="f2" id="f2" method="GET">
+											   <div class="btn-list">
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn" th:if='${pageTitle.equals("Verification of Documents")}' th:attr="onClick=|getNRTabInfo('@{/nsts/documentsverification/vd/1}','Document Verification')|">Document Verification</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn"  th:unless='${pageTitle.equals("Verification of Documents")}' th:attr="onClick=|getNRTabInfo('@{/nsts/documentsverification/vd/1}','Document Verification')|">Document Verification</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn"  th:if='${pageTitle.equals("Assign To Lineman")}'  th:attr="onClick=|getNRTabInfo('@{/nsts/getAssignToLineman/vd/1}','Assign to Lineman')|">Assign to Lineman</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn"  th:unless='${pageTitle.equals("Assign To Lineman")}'  th:attr="onClick=|getNRTabInfo('@{/nsts/getAssignToLineman/vd/1}','Assign to Lineman')|">Assign to Lineman</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn" th:if='${pageTitle.equals("Final Action by AE")}' th:attr="onClick=|getNRTabInfo('@{|/nsts/nscstobereleased/vd/1|}','Field Verification')|">Final Action by AE</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn" th:unless='${pageTitle.equals("Final Action by AE")}' th:attr="onClick=|getNRTabInfo('@{|/nsts/nscstobereleased/vd/1|}','Field Verification')|">Final Action by AE</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn text-end" th:if='${pageTitle.equals("NR Test Report")}' th:attr="onClick=|getNRTabInfo('@{/nsts/getNRTestReport/vd/1}','Test Report')|">Test Report</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn text-end" th:unless='${pageTitle.equals("NR Test Report")}' th:attr="onClick=|getNRTabInfo('@{/nsts/getNRTestReport/vd/1}','Test Report')|">Test Report</button>
+												</div>
+											</form>
+											
+											
+											<!-- <button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn text-end" th:attr="onClick=|showList()|">View List</button> -->
+										</h3>
+									</div> 
+									<div class="card-body card-body-nopad"> 
+										<div class="table-responsive"> 
+											<div id="recentorders_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+												<div class="row">
+													<div class="col-sm-12">
+														<div th:if="${#lists.isEmpty(docslist)}" class="alert alert-secondary d-flex align-items-center" role="alert"> <i class="fe fe-info me-2"></i> <div th:text="#{warning.norecords}">No Records found</div> </div>
+														
+														<table class="table table-bordered table-striped table-hover border-bottom mb-0 border dataTable no-footer" id="newreglist" role="grid" aria-describedby="newreglist_info" th:if="${not #lists.isEmpty(docslist)}"> 
+															<thead>
+																<tr role="row">
+																	<th>Sl.No.</th>
+																	<th>Registration</br>Number</th>
+																	<th>Registration</br>Date</th>
+																	<th>Consumer Name</th>
+																	<th>CAT</th>
+																	<!-- <th>Section</th> -->
+																	<th>To be Released</th>
+																	<th>Meter No.</th>
+																</tr> 
+															</thead> 
+															<tbody> 
+																<tr th:each="docreg,iterationStatus : ${docslist}">
+																	<td class="font-weight-normal" th:text="${iterationStatus.count}"></td>
+																	<td class="font-weight-bold" th:if = '${pageTitle.equals("NR Test Report")}'>
+																		<a class="docslist" th:text="${docreg.nrregno}" th:id="'doc'+${iterationStatus.count}" th:href="@{|/nsts/getPDF/tr/${menuId}/${docreg.nrregno}|}"  target="_NEW"></a>
+																	</td>
+																	<td class="font-weight-bold" th:if = '${pageTitle.equals("Verification of Documents") || pageTitle.equals("Assign To Lineman") || pageTitle.equals("Field Verification")}'>
+																		<a class="docslist" href="javascript:;" th:text="${docreg.nrregno}" th:id="'doc'+${iterationStatus.count}" th:attr="onClick=|getDocsInfo('${docreg.nrregno}','@{/nsts/getRegistrationDetails/vd}','${pageTitle}')|"></a>
+																	</td>
+																	<td class="font-weight-normal" th:text="${docreg.nrregdate}"></td>
+																	<td class="font-weight-normal text-start" th:text="${docreg.consname}"></td>
+																	<td class="font-weight-normal text-center" th:text="${docreg.catdesc}"></td>
+																	<!-- <td class="font-weight-normal text-center" th:text="${docreg.secname}"></td> -->
+																	<td class="font-weight-normal text-center" th:text="${docreg.tobereldate}"></td>
+																	<td class="font-weight-normal text-center" th:text="${docreg.meterno}"></td>
+																</tr>
+															</tbody>
+														</table>
+														<!-- <div class="form-group row mb-0 justify-content-center"> 
+															<div class="col text-center"> 
+																<button class="btn ripple btn-primary" type="button" id="btnShow">Show List</button> 
+													 		</div> 
+														</div> --> 
+														
+													</div>
+												</div>
+											</div> 
+										</div> 
+										
+										<div class="table-responsive" id="consumerDetails">
+											<div id="registrationDetails"></div>
+											<div>
+												<h6 class="card-content-label mt-3 mb-1 tx-15 font-weight-bold">Action</h6>
+												<div class="text-wrap">
+													<div class="example"> 
+														<div class="row row-sm" id="action_id">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Action</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="actionType" id="actionType" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="getAction()">
+																		<option value="x" selected>Choose one</option> 
+																	</select>
+																	<!-- <select class="form-control select2-no-search select2-hidden-accessible" data-select2-id="13" tabindex="-1" aria-hidden="true"><option label="Choose one" data-select2-id="15"> </option> <option value="Firefox" data-select2-id="34"> Firefox </option> <option value="Chrome" data-select2-id="35"> Chrome </option> <option value="Safari" data-select2-id="36"> Safari </option> <option value="Opera" data-select2-id="37"> Opera </option> <option value="Internet Explorer" data-select2-id="38"> Internet Explorer </option> </select>
+																	<span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" data-select2-id="14" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-gdup-container"><span class="select2-selection__rendered" id="select2-gdup-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">All categories</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="reason">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Reason for Reject</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="docType" id="docType" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="getReject()">
+																		 
+																	</select>
+																	<!-- <select class="form-control select2-no-search select2-hidden-accessible" data-select2-id="13" tabindex="-1" aria-hidden="true"><option label="Choose one" data-select2-id="15"> </option> <option value="Firefox" data-select2-id="34"> Firefox </option> <option value="Chrome" data-select2-id="35"> Chrome </option> <option value="Safari" data-select2-id="36"> Safari </option> <option value="Opera" data-select2-id="37"> Opera </option> <option value="Internet Explorer" data-select2-id="38"> Internet Explorer </option> </select>
+																	<span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" data-select2-id="14" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-gdup-container"><span class="select2-selection__rendered" id="select2-gdup-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">All categories</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="documents">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Documents to be Submitted</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select class="form-control select2 selectMultiple select2-hidden-accessible" multiple="" id="docslist" data-select2-id="7" tabindex="-1" aria-hidden="true">
+																	</select>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="scno">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-6 text-end"><label class="mg-b-0 tx-semibold tx-14">Enter UDC/OSL/Theft SCNO.</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<input class="form-control" name="scno" id="scno" type="text" placeholder="UDC/OSL/Theft SCNO."/>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="lineman"> 
+															<div class="row row-xs align-items-center mg-b-10">
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Lineman *</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="linemenlist" id="linemenlist" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="getLinemanPhone()">
+																		
+																	</select>
+																</div>
+															</div>
+															<div class="row row-xs align-items-center mg-b-10">		
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Lineman Mobile No. *</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<input class="form-control" name="lmphone" id="lmphone" type="text" placeholder="Lineman Mobile No."/>
+																</div> 
+															</div>	
+														</div>
+														<div class="row row-sm" id="udcoslid">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">UDC/OSL Service</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="docok" id="docok" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true"  onChange="getUDCEntryDetails(this.value)">
+																		<option value="x" selected>Choose one</option>
+																		<option value="YES">YES</option>
+																		<option value="NO">NO</option>
+																	</select>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="aeaction_id">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Action by AE</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="ae_action" id="ae_action" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																		<option value="x" selected>Choose one</option>
+																		<option value="Release">Release</option>
+																		<option value="Reject">Reject</option>
+																		<option value="Pending">Consumer not Ready</option>
+																	</select>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="udcoslYes">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Enter UDC/OSL/Theft SCNO.</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<input class="form-control" name="udcoslno" id="udcoslno" type="text" placeholder="UDC/OSL/Theft SCNO."/>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="remarks">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end">
+																	<label class="mg-b-6 tx-semibold tx-14">Remarks</label>
+																	<p class="text-muted card-sub-title">(Max.200 Characters)</p>
+																</div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<textarea class="form-control" placeholder="Reason (Max.200 Characters)" rows="3"></textarea>
+																	
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="udcoslNo">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select status</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="status" id="status" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true"  onChange="getServiceDetails(this.value)">
+																		<option value="x" selected>Choose one</option>
+																		<option value="Estimated Required">Estimated Required</option>
+																		<option value="Service Release">Service Release</option>
+																		<option value="Consumer Not Ready">Consumer Not Ready</option>
+																	</select>
+																</div> 
+															</div> 
+														</div>
+														<div class="row row-sm" id="StatusEst">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Type</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<select name="estimate" id="estimate" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true"  onChange="getStatusDetails(this.value)">
+																		<option value="x" selected>Choose one</option>
+																		<option value="Pannel Board">Pannel Board</option>
+																		<option value="Network Expansion">Network Expansion</option>
+																	</select>
+																</div> 
+															</div> 
+															<div class="row row-sm" id="ukscno1_div">
+																<div class="row row-xs align-items-center mg-b-10"> 
+																	<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Unique Scno.-1</label></div> 
+																	<div class="col-md-3 mg-t-5 mg-md-t-0">
+																		<input class="form-control" name="ukscno1" id="ukscno1" type="text" placeholder="ukscno -1"/>
+																	</div> 
+																</div> 
+															</div>
+															<div class="row row-sm" id="ukscno2_div">
+																<div class="row row-xs align-items-center mg-b-10"> 
+																	<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Unique Scno.-2</label></div> 
+																	<div class="col-md-3 mg-t-5 mg-md-t-0">
+																		<input class="form-control" name="ukscno2" id="ukscno2" type="text" placeholder="ukscno -2"/>
+																	</div> 
+																</div> 
+															</div>
+															<div class="row row-sm" id="ukscno3_div">
+																<div class="row row-xs align-items-center mg-b-10"> 
+																	<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Unique Scno.-3</label></div> 
+																	<div class="col-md-3 mg-t-5 mg-md-t-0">
+																		<input class="form-control" name="ukscno3" id="ukscno3" type="text" placeholder="ukscno -3"/>
+																	</div> 
+																</div> 
+															</div>
+															<div class="row row-sm" id="ukscno4_div">
+																<div class="row row-xs align-items-center mg-b-10"> 
+																	<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Unique Scno.-4</label></div> 
+																	<div class="col-md-3 mg-t-5 mg-md-t-0">
+																		<input class="form-control" name="ukscno4" id="ukscno4" type="text" placeholder="ukscno -4"/>
+																	</div> 
+																</div> 
+															</div>
+														</div>
+														<div class="form-group row mb-0 mt-2 justify-content-center" id="btnSubmit"> 
+															<div class="col text-center"> 
+																<button class="btn ripple btn-primary" type="submit" id="btn-search">Submit</button> 
+													 		</div> 
+														</div> 
+													</div>
+												</div>				
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--End row--> 
+					</div>
+				</div>
+			</div>
+		</div>		 
+	</div>
+	<!-- End Main Content--> 
+	<!-- Main Footer--> 
+	<div th:replace="fragments/footer :: sasfooter"></div>
+	<!--End Footer--> 
+	</div> 
+	<!-- End Page --> 
+	<!-- Back-to-top --> 
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+	</div>
+	<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{/assets/js/plugins/jquery.min.js}"></script>
+	<!-- <script th:src="@{/assets/js/plugins/jquery-3.3.1.min.js"></script> -->
+	<script th:src="@{/assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{/assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{/assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{/assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/select2.js}" type="text/javascript"></script>
+		
+	<script th:src="@{/assets/js/themeColors.js}"></script>
+	<script th:src="@{/assets/js/sticky.js}"></script>
+	<script th:src="@{/assets/js/switcher-styles.js}"></script>
+	<script th:src="@{/assets/js/custom.js}"></script>
+	<script th:src="@{/assets/js/switcher/switcher.js}"></script>
+	
+	<script th:src="@{/assets/js/sas.script.js}"></script>
+</body>
+</html>

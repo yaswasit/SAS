@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TSSPDCL">
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+
+<!-- Title --> 
+<title th:text="#{app.title}"></title> 
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{assets/css/sas.css?v=1.12}" />
+<link rel="stylesheet" th:href="@{assets/css/autocomplete/jquery-ui.css}">
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" /> -->
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<!-- <body class="main-body leftmenu ltr light-theme dark-menu"> -->
+
+<body class="ltr light-theme dark-background" style="">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> 
+			<img th:src="@{assets/img/loader.svg}" class="loader-img" alt="Loader"> 
+		</div> 
+		<!-- End Loader --> 
+		<div class="page main-signin-wrapper"> 
+			<!-- Row --> 
+			<div class="row signpages text-center"> 
+				<div class="col-md-12"> 
+					<div class="card border-0"> 
+						<div class="row row-sm"> 
+							<div class="col-lg-6 col-xl-6 d-none d-lg-block text-center bg-primary details rounded-start-11"> 
+								<div class="mt-4 pt-4 p-2 pos-relative"> 
+									<img th:src="@{assets/img/brand/tsspdcl-logo-light.png}" class="header-brand-img mb-3 mt-3" alt="logo"> 
+									<div class="clearfix"></div> 
+									<img th:src="@{assets/img/users/login.png}" class="ht-250 mb-0" alt="user"> 
+									<div class="clearfix"></div>
+									
+									<h2 class="mt-4 text-white tx-normal">Sign In Your Account</h2>
+									<img th:src="@{assets/img/brand/logo-light.png}" class="header-brand-img mb-1 mt-3" alt="logo">
+									<h2 class="mt-1 mb-1 text-white tx-strong text-shadow" th:text="#{app.apptitle}"></h2> 
+									<h6 class="tx-white-6 tx-14 mb-5 mt-xl-0">Attend Complaints, New Service Releases and Meter Changes</h6> 
+									
+								</div> 
+							</div> 
+							<div class="col-lg-6 col-xl-6 col-xs-12 col-sm-12 login_form"> 
+								<div class="container-fluid"> 
+									<div class="row row-sm"> 
+										<div class="card-body mt-2 mb-2"> 
+											<div class="mobilelogo"> 
+												<img th:src="@{assets/img/brand/dark-logo.png}" class=" d-lg-none header-brand-img text-start float-start mb-4 dark-logo" alt="logo">
+												<img th:src="@{assets/img/brand/logo.png}" class=" d-lg-none header-brand-img text-start float-end mb-4 dark-logo" alt="logo"> 
+												 
+											</div> 
+											<div class="clearfix"></div>
+											<!-- <div th:if="${param.error}">
+								                <div class="alert alert-danger">Invalid Username and Password.</div>
+								            </div> -->
+								            <div th:if="${error != null}">
+								                <div class="alert alert-danger" th:text="${error}"></div>
+								            </div>
+								            <div th:if="${invalidSession != null}">
+								            	<div class="alert alert-danger" role="alert" th:text="${invalidSession}"></div>
+								            </div>
+								            <!-- <div th:if="${param.logout}">
+								                <div class="alert alert-success">You have been logged out Successfully.</div>
+								            </div>  -->
+											<form method="post" th:action="@{/login}" class="form-horizontal" role="form">
+											
+												<h2 class="text-start mb-2">Sign In</h2> 
+												<p class="mb-4 text-muted tx-13 ms-0 text-start">Sign in to attend Complaints, New Service Releases and Meter Changes</p>
+												<div class="panel desc-tabs border-0 p-0"> 
+													
+													<div class="panel-body tabs-menu-body mt-2"> 
+														<div class="tab-content"> 
+															<div class="tab-pane active" id="tab01"> 
+																<!-- <div class="form-group text-start"> 
+																	<label class="tx-medium">Select Circle</label> 
+																	<select class="form-select" id="circleid" required="">
+																		<option selected="" disabled="" value="">Choose...</option> 
+																	</select> 
+																</div> -->
+																
+																<div class="form-group text-start"> 
+																	<label class="tx-medium" th:text="#{label.username}"></label> 
+																	<input id="username" name="username" class="form-control loading" th:placeholder="#{placeholder.username}" type="text" autocomplete="off"> 
+																</div> 
+																										 
+																<div class="form-group text-start"> 
+																	<label class="tx-medium" th:text="#{label.password}"></label> 
+																	<div class="input-group">
+																		<input id="password" name="password" class="form-control border-end-0" th:placeholder="#{placeholder.password}" type="password" autocomplete="new-password" data-bs-toggle="password" style="">
+																		<input type="text" class="form-control border-end-0" th:placeholder="#{placeholder.password}" style="display: none;">
+																	</div> 
+																</div>
+																<button type="submit" class="btn btn-primary btn-block">Sign In</button>
+																
+															</div> 
+															
+														</div> 
+													</div> 
+												</div> 
+											</form> 
+											<div class="text-start mt-5 ms-0"> 
+												<div class="mb-1 mt-5">
+													<a href="forgot.html">Forgot password?</a>
+												</div> 
+												<div>Don't have an account? <a href="signup.html">Register Here</a></div> 
+											</div> 
+											
+										</div> 
+									</div> 
+								</div> 
+							</div> 
+							
+						</div> 
+					</div> 
+				</div> 
+			</div> 
+			<!-- End Row --> 
+		</div>
+	</div>
+	
+	<!-- Jquery js--> 
+		
+	
+	<!-- <script th:src="@{assets/js/plugins/jquery.min.js}"></script> -->
+	<script th:src="@{assets/js/plugins/jquery-3.6.0.js}"></script>
+	<script th:src="@{assets/js/plugins/autocomplete/jquery-ui.js}"></script>
+		
+	<script th:src="@{assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/bootstrap-show-password.min.js}"></script>
+	
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{assets/js/plugins/select2.min.js}"></script>
+	
+	<script th:src="@{assets/js/themeColors.js}"></script>
+	<script th:src="@{assets/js/generate-otp.js}"></script>
+	<script th:src="@{assets/js/sticky.js}"></script>
+	<script th:src="@{assets/js/switcher-styles.js}"></script>
+	<script th:src="@{assets/js/custom.js}"></script>
+	<script th:src="@{assets/js/switcher/switcher.js}"></script>
+	
+	<script th:src="@{assets/js/sas.script.js}"></script>
+</body>
+</html>

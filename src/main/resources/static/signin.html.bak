@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Autocomplete - Default functionality</title>
+<link rel="stylesheet" type="text/css" href="assets/autocomplete/jquery.autocomplete.css" />
+<script type="text/javascript" src="assets/autocomplete/jquery.js"></script>
+<script type="text/javascript" src="assets/autocomplete/jquery.autocomplete.js"></script>
+<script>
+$(document).ready(function(){
+	//alert("hai");
+	var availableStates = [
+		"Alabama",
+		"Alaska",
+		"Arizona",
+		"Arkansas",
+		"California",
+		"Colorado",
+		"Delaware",
+		"Florida",
+		"Georgia",
+		"Hawaii",
+		"Idaho",
+		"Illinois",
+		"Indiana",
+		"Kansas",
+		"Kentucky",
+		"Louisiana",
+		"Maine",
+		"Maryland",
+		"Massachusetts",
+		"Michigan",
+		"Minnesota",
+		"Mississippi",
+		"Missouri",
+		"Montana",
+		"Nebraska",
+		"Nevada",
+		"New Hampshire",
+		"New Jersey",
+		"New Mexico",
+		"New York",
+		"North Carolina",
+		"North Dakota",
+		"Washington",
+		"West Virginia",
+		"Wisconsin",
+		"Wyoming"
+    ];
+
+	$("#states").autocomplete({
+		source: availableStates,
+		minLength: 3,
+		selectFirst: true
+	});
+});
+</script>
+</head>
+<body>
+
+<div>
+  <label for="states">State: </label>
+  <input id="states"/>
+</div> 
+<!-- 
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+
+	<script src="assets/js/plugins/bootstrap/popper.min.js"></script>
+	<script src="assets/js/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="assets/js/plugins/bootstrap/bootstrap-show-password.min.js"></script>
+
+	<script src="assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="assets/js/plugins/perfect-scrollbar/pscroll1.js"></script>
+	<script src="assets/js/plugins/sidemenu/sidemenu.js"></script>
+	<script src="assets/js/plugins/sidebar/sidebar.js"></script>
+	<script src="assets/js/plugins/select2.min.js"></script>
+	
+	<script src="assets/js/themeColors.js"></script>
+	<script src="assets/js/generate-otp.js"></script>
+	<script src="assets/js/sticky.js"></script>
+	<script src="assets/js/switcher-styles.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/switcher/switcher.js"></script>  -->
+
+</body>
+</html>

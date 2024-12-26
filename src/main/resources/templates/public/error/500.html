@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TSSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TSSPDCL-SAS</title> 
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{/assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<!-- <body class="main-body leftmenu ltr light-theme dark-menu"> -->
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	
+	<div class="page main-signin-wrapper bg-primary construction"> 
+		<div class="container "> 
+			<div class="construction1 text-center details text-white"> 
+				<div class="row align-items-center"> 
+					<div class="col-lg-12"> <h1 class="text-white display-1">500<span class="tx-20">error</span></h1> </div> 
+					<div class="col-lg-12 "> 
+						<h2 class="">Oops.The Page you are looking for doesn't exist..</h2> 
+						<h6 class="tx-15 mt-3 mb-4 tx-white-7 tx-normal">You may have mistyped the address or the page may have moved.</h6> 
+						<a class="btn ripple btn-success text-center"  th:href="@{/}">Back to Home</a> 
+					</div> 
+				</div> 
+			</div> 
+		</div> 
+	</div>
+			
+	<script th:src="@{/assets/js/plugins/jquery.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap-show-password.min.js}"></script>
+	
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{/assets/js/plugins/select2.min.js}"></script>
+	<script th:src="@{/assets/js/themeColors.js}"></script>
+	<script th:src="@{/assets/js/generate-otp.js}"></script>
+	<script th:src="@{/assets/js/sticky.js}"></script>
+	<script th:src="@{/assets/js/switcher-styles.js}"></script>
+	<script th:src="@{/assets/js/custom.js}"></script>
+	<script th:src="@{/assets/js/switcher/switcher.js}"></script>
+</body>
+</html>

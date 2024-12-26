@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TGSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{/assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{/assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header side-header sticky" style="margin-bottom: -64px;"> 
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left"> 
+						<div th:replace="fragments/topheader :: topheader-left"></div>
+					</div> 
+					<div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div> 
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/topheader :: topheader-right"></div>
+						
+   					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Sidemenu --> 
+  			<div class="sticky" style="margin-bottom: -64px;"> 
+  				<div class="main-menu main-sidebar main-sidebar-sticky side-menu ps ps--active-y"> 
+  					<div class="main-sidebar-header main-container-1 active"> 
+  						<div class="sidemenu-logo"> 
+  							<a class="main-logo" href="index.html"> 
+  								<img th:src="@{/assets/img/brand/tsspdcl-sas-logo.png}" class="header-brand-img desktop-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon-light.png}" class="header-brand-img icon-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/logo.png}" class="header-brand-img desktop-logo" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon.png}" class="header-brand-img icon-logo" alt="logo"> 
+  							</a> 
+  						</div> 
+  						<div class="main-sidebar-body main-body-1 is-expanded"> 
+  							<div class="slide-left disabled active d-none" id="slide-left">
+  								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24">
+  								<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+  							</div> 
+  							<div th:replace="fragments/sidenav :: sasleftnav"></div>
+  							
+							<div class="slide-right" id="slide-right">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+							</div> 
+						</div> 
+					</div> 
+					<!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+					</div>
+					<div class="ps__rail-y" style="top: 0px; right: 0px; height: 945px;">
+						<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 631px;"></div>
+					</div> -->
+				</div> 
+			</div> 
+			<!-- End Sidemenu --> 
+  			<!-- Main Content--> 
+			<div class="main-content side-content pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body"> 
+						<!-- Page Header --> 
+						<div class="page-header" id="page_title"> 
+							<div> 
+								<h2 class="main-content-title tx-24 mg-b-5" th:text="${pageTitle}"></h2> 
+								<ol class="breadcrumb"> 
+									<li class="breadcrumb-item"><a href="javascript:;">Home</a></li> 
+									<li class="breadcrumb-item"><a href="javascript:;">LTM</a></li>
+									<li class="breadcrumb-item active" aria-current="page" th:text="${pageTitle}"></li>
+								</ol>
+							</div> 
+						</div>
+						
+						<!-- End Page Header --> 
+											
+						<!--Row--> 
+						<div class="row row-sm"> 
+							<div class="col-lg-12"> 
+								
+								<div class="card custom-card"> 
+									<div class="card-header border-bottom"> 
+										<h3 class="card-title tx-18 d-flex justify-content-between align-items-center">
+											<label class="main-content-label mb-1 card-title-dark" th:text="${pageTitle}"></label>
+											<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn text-end" th:attr="onClick=|showList()|">View List</button>
+										</h3>
+									</div> 
+									<div class="card-body card-body-nopad"> 
+										<div class="table-responsive"> 
+											<div id="recentorders_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+												<div class="row">
+													<div class="col-sm-12">
+														<div th:if="${#lists.isEmpty(ltmlist)}" class="alert alert-secondary d-flex align-items-center" role="alert"> <i class="fe fe-info me-2"></i> <div th:text="#{warning.norecords}">No Records found</div> </div>
+														
+														<table class="table table-bordered table-striped table-hover border-bottom mb-0 border dataTable no-footer" id="newreglist" role="grid" aria-describedby="ltmapplications_info" th:if="${not #lists.isEmpty(ltmlist)}"> 
+														<thead>
+															<tr role="row">
+																<th>Sl.No.</th>
+																<th>Registration</br>Number</th>
+																<th>Registration</br>Date</th>
+																<th>Consumer Name</th>
+																<th>Builder Name</th>
+																<th>No.of</br>Flats</th>
+																<th>No.of</br>Connections</th>
+																<th>Meter No.</th>
+															</tr> 
+														</thead> 
+														<tbody> 
+															<tr th:each="ltmapp,iterationStatus : ${ltmlist}">
+																<td class="font-weight-normal" th:text="${iterationStatus.count}"></td>
+																<td class="font-weight-bold"><a class="docslist" href="javascript:;" th:text="${ltmapp.registration_number}" th:id="'doc'+${iterationStatus.count}" th:attr="onClick=|getTestReport('${ltmapp.registration_number}','@{/nsts/getTestReport/otpa}','${iterationStatus.count}')|"></a></td>
+																<td class="font-weight-normal" th:text="${ltmapp.registration_on}"></td>
+																<td class="font-weight-normal text-start" th:text="${ltmapp.apartment_name}"></td>
+																<td class="font-weight-normal text-start" th:text="${ltmapp.builder_name}"></td>
+																<td class="font-weight-normal text-center" th:text="${ltmapp.no_of_flats}"></td>
+																<td class="font-weight-normal text-center" th:text="${ltmapp.no_of_conn_reqd}"></td>
+																<td class="font-weight-normal text-center">
+																	<select name="mtrslno" th:id="mtrslno+${iterationStatus.count}" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																		<option value="0" selected>Choose one</option> 
+																		<option th:each="option : ${ltmapp.meters}" th:value="${option}" th:text="${option}"></option>
+																	</select>
+																</td>
+															</tr>
+															
+														</tbody>
+														</table>
+														<!-- <div class="form-group row mb-0 justify-content-center"> 
+															<div class="col text-center"> 
+																<button class="btn ripple btn-primary" type="button" id="btnShow">Show List</button> 
+													 		</div> 
+														</div> --> 
+														
+													</div>
+												</div>
+											</div> 
+										</div> 
+										
+										<div class="table-responsive" id="consumerDetails">
+											<!-- <div id="registrationDetails"></div> -->
+											
+											
+											
+											<!-- Row -->
+											<div class="row row-sm">
+												<div class="col-lg-12 col-md-12">
+													<div class="card custom-card"> 
+														<div class="card-body">
+															<div class="d-lg-flex">
+																<div class="col-xl-12">
+																	 <div class="avatar brround avatar-md me-3 cover-image" style="background-image: url(/assets/img/favicon.ico)"></div>
+																	 <div class="text-center p-4">
+																	 	<h3><b>SOUTHERN POWER DISTRIBUTION COMPANY OF TELANGANA LIMITED</b></h3>
+																	 	<h4>Operation</h4>
+																	 	<h4>TEST REPORTPART - A</h4>
+																	 	( To be filled in by Distribution Engineers )
+																	 </div>
+																</div>
+																<!-- <h2 class="main-content-label mb-1">#INV0123</h2>
+																<div class="ms-auto">
+																	<p class="mb-1"><span>Invoice Date :</span> 01 Nov 2021</p>
+																	<p class="mb-0"><span>Due Date :</span> 01 Dec 2021</p>
+																</div> -->
+															</div>
+															<hr class="mg-b-40 message-inner-separator">
+															<div class="row row-sm">
+																<div class="col-lg-6">
+																	<!-- <p class="h4">Invoice From:</p> -->
+																	<address>
+																		Sanction No.: ________________________
+																		<br>W.O. No.: ________________________ 
+																		<br>TGSPDCL Portion Estimated Charges: _____________
+																	</address>
+																</div>
+																<div class="col-lg-6 text-end">
+																	<p class="h4" id="ltm_regno_dt"></p>
+																	<address>
+																		S.C.No : ________________________
+																		<br>Distribution : ________________________
+																		<br>Date : ________________________
+																	 </address>
+																</div>
+															</div>
+															<div class="col-lg-12 table-responsive">
+										
+																<table class="table mb-0 text-nowrap">
+																<tbody>
+																	<tr>
+																		<td width="1%" align="center">1.</td>
+																		<td width="1%" align="center">a.</td>
+																		<th width="40%" align="left">Name of the Consumer</th>
+																		<td width="58%" align="left" id="cons_name"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">b.</td>
+																		<th>Father'Name</th>
+																		<td align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">c.</td>
+																		<th>In case the consumer is not owner of the premises specify<br/> ( Owners name and address.)</th>
+																		<td align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center">2.</td>
+																		<td width="1" align="center"></td>
+																		<th>Premises to which supply relates specify</th>
+																		<td align="left">: <B>Personal</B></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">i.</td>
+																		<th>Nature of Business</th>
+																		<td align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">ii.</td>
+																		<th>Purpose in case of non domestic / Industrial supply</th>
+																		<td align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">iii.</td>
+																		<th>Type of Industry</th>
+																		<td align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center">3.</td>
+																		<td width="1" align="center"></td>
+																		<th>Particulars of premises to which supply relates Door No.</th>
+																		<td align="left" id="premises_dno"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>S.Y. No.</th>
+																		<td align="left" id="premises_syno"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>Street</th>
+																		<td align="left" id="premises_street"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>Town / Village</th>
+																		<td align="left" id="premises_town"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center">4.</td>
+																		<td width="1" align="center"></td>
+																		<th>Permanent address of Consumer</th>
+																		<td align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>Door No.</th>
+																		<td align="left" id="paddress"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>Street</th>
+																		<td align="left" id="pstreet"></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center"></td>
+																		<th>Town / Village</th>
+																		<td align="left" id="ptown"></td>
+																	</tr>
+																	
+																	<tr>
+																		<td width="1" align="center">5.</td>
+																		<td width="1" align="center"></td>
+																		<th>Other S.C. No./Distribution in the name of the above<br/>consumer under the TGSPDCL. (Full details to be furnished.)</th>
+																		<td></td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center" valign="top">a.</td>
+																		<th>Whether the service now released is for a new premises or to an
+																			 <br/>old premises to a new consumer (Specify the S.C.No. if <br/>any available.  Already under disconnection)</th>
+																		<td>: YES/NO</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center" valign="top">b.</td>
+																		<th>Whether a clearance certificate is obtained from the Electricity<br/>Revenue Office before releasing the supply<br/>to new consumerin the old premises</th>
+																		<td>: YES/NO</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center">6.</td>
+																		<td width="1" align="center"></td>
+																		<th>Particulars of connected load</th>
+																		<td>
+																		</td>
+																	</tr>
+																</tbody>
+																</table>
+															<br/>
+															<table class="table table-invoice table-bordered">
+																				<thead>
+																					<tr>
+																						<th></th>
+																						<th>No.of Points</th>
+																						<th>Waltage Points</th>
+																						<th>Total Waltage</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td width="55%">Lights</td>
+																						<td width="15%"></td>
+																						<td width="15%"></td>
+																						<td width="15%"></td>
+																					</tr>
+																					<tr>
+																						<td>Fans</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Convenient wall plugs for Light and Fans</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Cookers</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Water Heaters</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Pump sets</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Motors</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Other purposes (Specify Details)</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Convenient wall plugs 5 Amps / 15 Amps</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Installed by TGSPDCL. / Consumer</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>Connected Load</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																
+														<br/>
+										
+																<table class="table mb-0" width="90%">
+																<tbody>
+																	<tr>
+																		<td width="1%" align="center">7.</td>
+																		<td width="1%" align="center">i.</td>
+																		<th width="40%" align="left">Insulation between conductor and earth</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1" align="center"></td>
+																		<td width="1" align="center">ii.</td>
+																		<th>Insulation between Phases</th>
+																		<td>: Polyphase / single phase</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">8.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Nature of supply</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">9.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Particulars of Meter<br/>Whether owned by consumer / TGSPDCL.</th>
+																		<td width="58%" align="left">:
+																			<table class="table table-invoice table-bordered">
+																				<thead>
+																					<tr>
+																						<th>MeterNo.</th>
+																						<th>Meter Make</th>
+																						<th>Multiplying Factor</th>
+																						<th>Capacity&Type</th>
+																						<th>Initial Reading</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td id="meter_no"></td>
+																						<td id="make"></td>
+																						<td id="mf"></td>
+																						<td id="capacity"></td>
+																						<td id="inl_reading"></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+																	</tr>
+																	
+																	<tr>
+																		<td width="1%" align="center">10.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Particulars of Seals fixed to the Meter</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<td align="center" colspan="2">
+																			<table class="table table-invoice table-bordered">
+																				<thead>
+																					<tr>
+																						<th>Location</th>
+																						<th>No. Of Seals</th>
+																						<th>ImpressionOn seals</th>
+																						<th>Type of Sealer</th>
+																						<th>Sl.No. of Seals</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td>a. Meter Cover</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>b. Terminal Cover</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>c. Meter Box</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																					<tr>
+																						<td>d. Cut-out</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">11.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Tariff Applicable</th>
+																		<td width="58%" align="left">: Monthly Minimum / Annual Minimum</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">12.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Security Deposit : Rs./-</th>
+																		<td width="58%" align="left">:
+																			<table class="table table-invoice table-bordered">
+																				<thead>
+																					<tr>
+																						<th align="center">Amount</th>
+																						<th align="center">D.D. No. & Date</th>
+																						<th align="center">P.C.B.No. & Date</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">13.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Agreement position<br/>(Despatch No. Agreement Regd. Item No. etc.)</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">14.</td>
+																		<td width="1%" align="center">a.</td>
+																		<th width="40%" align="left">Connected load</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center">b.</td>
+																		<th width="40%" align="left">Connected load (as per sanctioned estimate)</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">15.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Tariff guarantee</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center">a.</td>
+																		<th width="40%" align="left">Special Guarantee</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">16.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Date of commencement of Supply</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">17.</td>
+																		<td width="1%" align="center">a.</td>
+																		<th width="40%" align="left">Date if expiry of three months notice (for power services)</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center">b.</td>
+																		<th width="40%" align="left">Whether the U.C.M. Charges were paid before releasing<br/>the services (furnish P.C.B. No. and date D.D.No. etc. /<br/>Receipt No. of the E.R.O. where payment is made at E.R.O.)</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">18.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Whether the land or the premises relates to the owner<br/>(Consent letter of the owner of indemnity bond to be enclosed)</th>
+																		<td width="58%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left"></th>
+																		<td width="58%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left"></th>
+																		<td width="58%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td align="left" colspan="4">I am a witness to the above particulars and seals were put in my presence</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left"></th>
+																		<td width="58%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center">1. </td>
+																		<th width="40%" align="left">WITNESS :</th>
+																		<td width="58%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left"></th>
+																		<td width="58%" align="center">SIGNATURE OF THE CONSUMER</td>
+																	</tr>
+																	
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center">2. </td>
+																		<th width="40%" align="left">WITNESS :</th>
+																		<td width="58%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">Addl. Asst. Engineer / Asst. Divi. Engineer</th>
+																		<td width="58%"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left">LINE INSPECTOR<br/>Forwarded to A.A.O. /ERO____________</th>
+																		<td width="58%" align="center">DISTRIBUTION : WITH DATE</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="40%" align="left"></th>
+																		<td width="58%" align="center">ADDL. ASST. ENGINEER</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<div style="page-break-before: always;"></div>
+														
+														<div class="col-xl-12">
+															 <div class="avatar brround avatar-md me-3 cover-image" style="background-image: url(/assets/img/favicon.ico)"></div>
+															 <div class="text-center p-4">
+															 	<h3><b>Part - B</b></h3>
+															 </div>
+														</div>
+														<table class="table mb-0" width="90%">
+																<tbody>
+																	<tr>
+																		<td width="1%" align="center">1.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">Security Deposit Register</th>
+																		<td width="13%" align="left">Item No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Folio No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">S D Vol. No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">2.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">Service Connection Register</th>
+																		<td width="13%" align="left">Item No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Folio No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Vol.No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">3.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">Agreement Register</th>
+																		<td width="13%" align="left">Item No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Folio No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Vol.No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">4.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">A.M.G. Calender</th>
+																		<td width="13%" align="left">Item No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">Folio No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center">5.</td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">Consumer Ledger</th>
+																		<td width="13%" align="left">Item No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left">S.C. No.</td>
+																		<td width="55%" align="left">:</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left"></td>
+																		<td width="55%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left"></td>
+																		<td width="55%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td align="left" colspan="5">Ledger Folio Opened to entries completed Meter Card Opened</td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left"></td>
+																		<td width="55%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left"></td>
+																		<td width="55%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left"></th>
+																		<td width="13%" align="left"></td>
+																		<td width="55%" align="left"></td>
+																	</tr>
+																	<tr>
+																		<td width="1%" align="center"></td>
+																		<td width="1%" align="center"></td>
+																		<th width="20%" align="left">Billing Superintendent</th>
+																		<td width="13%" align="right">Accountant</td>
+																		<td width="55%" align="center">Electricity Revenue Office</td>
+																	</tr>
+																</tbody>
+															</table>
+															
+															<div align="left" class="card-footer">
+																Note : a. No. Column should be left unfilled.
+															</div>
+															<div align="left">
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. S.F. No. Should invariably recorded for all the agricultural services to ink up the services with the Agreement.
+															</div>
+													</div>
+													<div class="card-footer text-end">
+														<!-- <button type="button" class="btn ripple btn-primary mb-1"><i class="si si-wallet me-1"></i> Pay Now</button>
+														<button type="button" class="btn ripple btn-success mb-1"><i class="si si-paper-plane me-1"></i> Send Invoice</button> -->
+														<button type="button" class="btn ripple btn-primary mb-1" onclick="javascript:window.print();"><i class="si si-printer me-1"></i> Print Test Report</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- End Row --> 
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--End row--> 
+					</div>
+				</div>
+			</div>
+		</div>		 
+	</div>
+	<!-- End Main Content--> 
+	<!-- Main Footer--> 
+	<div th:replace="fragments/footer :: sasfooter"></div>
+	<!--End Footer--> 
+	</div> 
+	<!-- End Page --> 
+	<!-- Back-to-top --> 
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+	</div>
+	<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{/assets/js/plugins/jquery.min.js}"></script>
+	<!-- <script th:src="@{/assets/js/plugins/jquery-3.3.1.min.js"></script> -->
+	<script th:src="@{/assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{/assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{/assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{/assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/select2.js}" type="text/javascript"></script>
+		
+	<script th:src="@{/assets/js/themeColors.js}"></script>
+	<script th:src="@{/assets/js/sticky.js}"></script>
+	<script th:src="@{/assets/js/switcher-styles.js}"></script>
+	<script th:src="@{/assets/js/custom.js}"></script>
+	<script th:src="@{/assets/js/switcher/switcher.js}"></script>
+	
+	<script th:src="@{/assets/js/sas.script.js}"></script>
+</body>
+</html>

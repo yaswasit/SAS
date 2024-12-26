@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TSSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header side-header sticky" style="margin-bottom: -64px;"> 
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left"> 
+						<div th:replace="fragments/topheader :: topheader-left"></div>
+					</div> 
+					<div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div> 
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/topheader :: topheader-right"></div>
+					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Sidemenu --> 
+  			<div class="sticky" style="margin-bottom: -64px;"> 
+  				<div class="main-menu main-sidebar main-sidebar-sticky side-menu ps ps--active-y"> 
+  					<div class="main-sidebar-header main-container-1 active"> 
+  						<div class="sidemenu-logo"> 
+  							<a class="main-logo" href="index.html"> 
+  								<img th:src="@{assets/img/brand/tsspdcl-sas-logo.png}" class="header-brand-img desktop-logo-dark" alt="logo"> 
+  								<img th:src="@{assets/img/brand/icon-light.png}" class="header-brand-img icon-logo-dark" alt="logo"> 
+  								<img th:src="@{assets/img/brand/logo.png}" class="header-brand-img desktop-logo" alt="logo"> 
+  								<img th:src="@{assets/img/brand/icon.png}" class="header-brand-img icon-logo" alt="logo"> 
+  							</a> 
+  						</div> 
+  						<div class="main-sidebar-body main-body-1 is-expanded"> 
+  							<div class="slide-left disabled active d-none" id="slide-left">
+  								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24">
+  								<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+  							</div> 
+  							<div th:replace="fragments/sidenav :: sasleftnav"></div>
+  							
+							<div class="slide-right" id="slide-right">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+							</div> 
+						</div> 
+					</div> 
+					<!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+					</div>
+					<div class="ps__rail-y" style="top: 0px; right: 0px; height: 945px;">
+						<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 631px;"></div>
+					</div> -->
+				</div> 
+			</div> 
+			<!-- End Sidemenu --> 
+  			<!-- Main Content--> 
+			<div class="main-content side-content pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body"> 
+						<!-- Page Header --> 
+						<div class="page-header"> 
+							<div> 
+								<h2 class="main-content-title tx-24 mg-b-5" th:text="${pageTitle}">Dashboard</h2> 
+								<ol class="breadcrumb"> 
+									<li class="breadcrumb-item"><a href="javascript:;">Home</a></li> 
+									<li class="breadcrumb-item active" aria-current="page">SAS Dashboard</li>
+								</ol>
+							</div> 
+						</div>
+						
+						<!-- End Page Header --> 
+						<!--Row--> 
+						<div class="row row-sm"> 
+							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> 
+								<div class="card custom-card bg-primary"> 
+									<div class="card-body"> 
+										<div class="card-item"> 
+											<div class="card-item-icon"> 
+											 
+												<i class="fa fa-user-plus"></i>
+											</div> 
+											<div class="card-item-title mb-2"> 
+												<label class="main-content-label tx-13 mb-1">Total Complaints Registered</label> 
+											</div> 
+											<div class="card-item-body"> 
+												<div class="card-item-stat"> 
+													<h3 class="font-weight-strong" th:text="${reginfo.totalreg}"></h3> 
+													<!-- <small><b class="badge rounded-pill bg-success fs-11">65%</b><span class="px-1">Higher</span></small> --> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+							</div>
+					
+							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> 
+								<div class="card custom-card bg-success"> 
+									<div class="card-body"> 
+										<div class="card-item"> 
+											<div class="card-item-icon"> 
+												<i class="fa fa-folder-open"></i>
+											</div> 
+											<div class="card-item-title mb-2"> 
+												<!-- <label class="main-content-label tx-13 mb-1">Pending at SAP</label>  -->
+												<label class="main-content-label tx-13 mb-1">Under Estimation Process</label>
+											</div> 
+											<div class="card-item-body"> 
+												<div class="card-item-stat"> 
+													<h3 class="font-weight-strong" th:text="${reginfo.pending_atsap}"></h3> 
+													<!-- <small><b class="badge rounded-pill bg-warning fs-11">25%</b><span class="px-1">Increased</span></small> --> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+							</div> 
+
+							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> 
+								<div class="card custom-card bg-danger"> 
+									<div class="card-body"> 
+										<div class="card-item"> 
+											<div class="card-item-icon"> 
+												<i class="fa fa-address-card"></i>
+											</div> 
+											<div class="card-item-title  mb-2"> 
+												<label class="main-content-label tx-13 mb-1">Pending at Consumer</label> 
+											</div> 
+											<div class="card-item-body"> 
+												<div class="card-item-stat"> 
+													<h3 class="font-weight-strong" th:text="${reginfo.pending_atcons}"></h3> 
+													<!-- <small><b class="badge rounded-pill bg-danger fs-11">15%</b> <span class="px-1">Decreased</span></small> --> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+							</div> 
+
+							<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> 
+								<div class="card custom-card bg-azure"> 
+									<div class="card-body"> 
+										<div class="card-item"> 
+											<div class="card-item-icon"> 
+												<svg viewBox="0 0 320 550" xmlns="http://www.w3.org/2000/svg"><path d="m308 96c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-296c-6.627 0-12 5.373-12 12v44.748c0 6.627 5.373 12 12 12h85.28c27.308 0 48.261 9.958 60.97 27.252h-146.25c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h158.757c-6.217 36.086-32.961 58.632-74.757 58.632h-84c-6.627 0-12 5.373-12 12v53.012c0 3.349 1.4 6.546 3.861 8.818l165.052 152.356a12.001 12.001 0 0 0 8.139 3.182h82.562c10.924 0 16.166-13.408 8.139-20.818l-150.882-139.276c76.499-2.34 131.144-53.395 138.318-127.906h52.811c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-58.69c-3.486-11.541-8.28-22.246-14.252-32z"/></svg>
+											</div> 
+											<div class="card-item-title  mb-2"> 
+												<label class="main-content-label tx-13 mb-1">Ready for Release</label> 
+											</div> 
+											<div class="card-item-body"> 
+												<div class="card-item-stat"> 
+													<h3 class="font-weight-strong" th:text="${reginfo.inprogress}"></h3> 
+													<!-- <small><b class="badge rounded-pill bg-success fs-11">10%</b><span class="px-1">than last month</span></small> --> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+							</div> 
+						</div> 
+						<!--End row--> 
+						<!--Row-->
+						<div class="row row-sm"> 
+							<div class="col-lg-4 col-md-6"> 
+								<div class="card custom-card">
+									<div class="card-header pb-1">
+										<h3 class="card-title mb-2 tx-18">
+											<label class="main-content-label mb-1"><font color="#000">Pending Complaints List</font></label>
+											<p class="text-muted  card-sub-title">This pending complaints belongs to this login only</p>
+										</h3>
+									</div>
+									<div class="product-timeline card-body">
+										<ul class="timeline-1 mb-0"> 
+											<li class="mt-0">
+												<svg class="bg-primary-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M14.5,2L14.5,2C14.2,2,14,2.2,14,2.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v0C22,5.4,18.6,2,14.5,2z M15,9V3c3.2,0.2,5.7,2.8,6,6H15z M19.5,12.5h-8v-8C11.5,4.2,11.3,4,11,4c-5,0-9,4-9,9s4,9,9,9c5,0,9-4,9-9v0C20,12.7,19.8,12.5,19.5,12.5z M11.5,21c-4.4,0.3-8.2-3.1-8.5-7.5C2.7,9.1,6.1,5.3,10.5,5v8c0,0.3,0.2,0.5,0.5,0.5h8C18.7,17.5,15.5,20.7,11.5,21z"></path>
+												</svg>
+												<span class="tx-semibold mb-4 tx-14 ms-3">Power Failures</span>
+												<a  data-bs-target="#scrollmodal" data-bs-toggle="modal" href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.power}">0</a> 
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li>
+											<li class="mt-0"> 
+												<svg class="bg-danger-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M21.5,17h-15C5.6715698,17,5,16.3284302,5,15.5S5.6715698,14,6.5,14h10.9638672c1.2661133,0.0041504,2.3724365-0.8544312,2.6826172-2.0819702l1.8378906-7.2959595c0.0680542-0.2669678-0.0932617-0.5385742-0.3602905-0.6066284C21.5834961,4.005127,21.5418091,3.999939,21.5,4H6.3908691L6.3642578,3.8935547C6.0869751,2.7798462,5.0861816,1.9986572,3.9384766,2H2.5C2.223877,2,2,2.223877,2,2.5S2.223877,3,2.5,3h1.4384766C4.6269531,2.9990234,5.227356,3.4676514,5.3935547,4.1357422L7.609375,13H6.5C5.1192627,13,4,14.1192627,4,15.5S5.1192627,18,6.5,18h1.0124512C7.1818848,18.4303589,7.0018311,18.9573364,7,19.5C7,20.8807373,8.1192627,22,9.5,22s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5h4.0249023C15.1818848,18.4303589,15.0018311,18.9573364,15,19.5c0,1.3807373,1.1192627,2.5,2.5,2.5s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5H21.5c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,17,21.5,17z M6.6416016,5h14.2167969l-1.6816406,6.6738281C18.9780884,12.4567871,18.2716675,13.0037842,17.4638672,13H8.65625L6.6416016,5z M9.5,21C8.6715698,21,8,20.3284302,8,19.5S8.6715698,18,9.5,18s1.5,0.6715698,1.5,1.5C10.9990845,20.328064,10.328064,20.9990845,9.5,21z M17.5,21c-0.8284302,0-1.5-0.6715698-1.5-1.5s0.6715698-1.5,1.5-1.5s1.5,0.6715698,1.5,1.5C18.9990845,20.328064,18.328064,20.9990845,17.5,21z"></path>
+												</svg>
+												<span class="tx-semibold mb-4 tx-14 ms-3">Category Change</span> 
+												<a href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.category}">0</a> 
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li>
+											<li class="mt-0"> 
+												<svg class="bg-success-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M9.5,2C9.223877,2,9,2.223877,9,2.5v19c0,0.0001831,0,0.0003662,0,0.0005493C9.0001831,21.7765503,9.223999,22.0001831,9.5,22c0.0001831,0,0.0003662,0,0.0006104,0C9.7765503,21.9998169,10.0001831,21.776001,10,21.5v-19C10,2.223877,9.776123,2,9.5,2z M4.5,12C4.223877,12,4,12.223877,4,12.5v9c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,21.7765503,4.223999,22.0001831,4.5,22c0.0001831,0,0.0003662,0,0.0006104,0C4.7765503,21.9998169,5.0001831,21.776001,5,21.5v-9C5,12.223877,4.776123,12,4.5,12z M19.5,16c-0.276123,0-0.5,0.223877-0.5,0.5v5c0,0.0001831,0,0.0003662,0,0.0005493C19.0001831,21.7765503,19.223999,22.0001831,19.5,22c0.0001831,0,0.0003662,0,0.0006104,0C19.7765503,21.9998169,20.0001831,21.776001,20,21.5v-5C20,16.223877,19.776123,16,19.5,16z M14.5,8C14.223877,8,14,8.223877,14,8.5v13c0,0.0001831,0,0.0003662,0,0.0005493C14.0001831,21.7765503,14.223999,22.0001831,14.5,22c0.0001831,0,0.0003662,0,0.0006104,0C14.7765503,21.9998169,15.0001831,21.776001,15,21.5v-13C15,8.223877,14.776123,8,14.5,8z"></path>
+												</svg> 
+												<span class="tx-semibold mb-4 tx-14 ms-3">Meter Complaints</span> 
+												<a href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.meter}">0</a> 
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li>
+											<li class="mt-0"> 
+												<svg class="bg-warning-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path>
+												</svg> 
+												<span class="tx-semibold mb-4 tx-14 ms-3">Load Complaints</span> 
+												<a href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.load}">0</a>  
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li> 
+											<li class="mt-0"> 
+												<svg class="bg-purple-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"></path>
+												</svg> 
+												<span class="tx-semibold mb-4 tx-14 ms-3">Billing Complaints</span> 
+												<a href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.billing}">0</a>  
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li> 
+											<li class="mt-0"> 
+												<svg class="bg-primary-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+													<path fill="#ffffff" d="M21.8534546,7.1464844l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-14,14C2.0526733,16.2402344,2,16.3673706,2,16.5v5.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l14-14c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221C22.0487671,7.6581421,22.0487061,7.3416138,21.8534546,7.1464844z M7.2930298,21H3v-4.2930298l10.671814-10.671814l4.2926025,4.293457L7.2930298,21z M18.6714478,9.621582l-4.2926636-4.293396L16.5,3.2069702L20.7930298,7.5L18.6714478,9.621582z"></path>
+												</svg> 
+												<span class="tx-semibold mb-4 tx-14 ms-3">Other Complaints</span> 
+												<a href="javascript:;" class="float-end tx-14 tx-semibold" th:text="${ccinfo.others}">0</a>  
+												<p class="mb-0 text-muted tx-12 ms-3">Sub Title</p>
+											</li> 
+										</ul> 
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-8 col-md-6"> 
+								<div class="card custom-card overflow-hidden"> 
+									<div class="card-body"> 
+										<div> 
+											<h6 class="main-content-label mb-1">Bar Chart</h6> 
+											<p class="text-muted  card-sub-title">This bar chart belongs to comparison NR and LTM.</p>
+										</div> 
+										<div class="chartjs-wrapper-demo"> 
+										
+											<canvas id="chartBar2" width="570" height="500" style="display: block; box-sizing: border-box; height: 250px; width: 285px;"></canvas> 
+										</div> 
+									</div> 
+								</div> 
+							</div>
+							<!-- <div class="col-lg-6 col-md-6"> 
+								<div class="card custom-card overflow-hidden"> 
+									<div class="card-body"> 
+										<div> 
+											<h6 class="main-content-label mb-1">Pie Chart</h6> 
+											<p class="text-muted  card-sub-title">This pie chart belongs to New Registrations.</p>
+										</div> 
+										<div class="chartjs-wrapper-demo"> 
+											<canvas id="chartDonut" width="570" height="500" style="display: block; box-sizing: border-box; height: 250px; width: 285px;"></canvas>
+											
+										</div> 
+									</div> 
+								</div> 
+							</div>  -->
+						</div>
+						<!--End row-->
+						<!--Row--> 
+						<!-- <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div> -->
+						<div sec:authorize="hasAuthority('ADMIN')">
+						
+							<!-- <div class="row row-sm"> 
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> 
+									<div class="card custom-card overflow-hidden"> 
+										<div class="card-header border-bottom"> 
+											<div> 
+												<h3 class="card-title tx-18">
+													<label class="card-content-label tx-15">TRANSACTIONS</label>
+												</h3> 
+											</div> 
+										</div> 
+										<div class="card-body pb-0"> 
+											<div class="transaction"> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-primary bg-primary-transparent text-primary mt-1"> 
+														<svg class="transcation-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+														<path d="M19.9794922,7.9521484l-6-5.2666016c-1.1339111-0.9902344-2.8250732-0.9902344-3.9589844,0l-6,5.2666016C3.3717041,8.5219116,2.9998169,9.3435669,3,10.2069702V19c0.0018311,1.6561279,1.3438721,2.9981689,3,3h2.5h7c0.0001831,0,0.0003662,0,0.0006104,0H18c1.6561279-0.0018311,2.9981689-1.3438721,3-3v-8.7930298C21.0001831,9.3435669,20.6282959,8.5219116,19.9794922,7.9521484z M15,21H9v-6c0.0014038-1.1040039,0.8959961-1.9985962,2-2h2c1.1040039,0.0014038,1.9985962,0.8959961,2,2V21z M20,19c-0.0014038,1.1040039-0.8959961,1.9985962-2,2h-2v-6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3h-2c-1.6561279,0.0018311-2.9981689,1.3438721-3,3v6H6c-1.1040039-0.0014038-1.9985962-0.8959961-2-2v-8.7930298C3.9997559,9.6313477,4.2478027,9.0836182,4.6806641,8.7041016l6-5.2666016C11.0455933,3.1174927,11.5146484,2.9414673,12,2.9423828c0.4853516-0.0009155,0.9544067,0.1751099,1.3193359,0.4951172l6,5.2665405C19.7521973,9.0835571,20.0002441,9.6313477,20,10.2069702V19z"></path></svg> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Electricity Bill</span> 
+															<p class="text-muted tx-12"> 11 Mar 3:00PM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-danger font-weight-normal">-$15.30</div> 
+													</div> 
+												</div> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-secondary bg-secondary-transparent text-secondary mt-1"> 
+														<span class="avatar-1">AL</span> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Maxin Till </span> 
+															<p class="text-muted tx-12"> 13 Mar 11:49AM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-success font-weight-normal">+$100.00</div> 
+													</div> 
+												</div> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-success bg-success-transparent text-success mt-1"> 
+														<span class="avatar-1">KL</span> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Keval Lia</span> 
+															<p class="text-muted tx-12"> 16 Mar 1:06PM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-success font-weight-normal">+$89.06</div> 
+													</div> 
+												</div> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-info bg-info-transparent text-info mt-1"> 
+														<svg class="transcation-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#01b8ff" d="M19.9794922,7.9521484l-6-5.2666016c-1.1339111-0.9902344-2.8250732-0.9902344-3.9589844,0l-6,5.2666016C3.3717041,8.5219116,2.9998169,9.3435669,3,10.2069702V19c0.0018311,1.6561279,1.3438721,2.9981689,3,3h2.5h7c0.0001831,0,0.0003662,0,0.0006104,0H18c1.6561279-0.0018311,2.9981689-1.3438721,3-3v-8.7930298C21.0001831,9.3435669,20.6282959,8.5219116,19.9794922,7.9521484z M15,21H9v-6c0.0014038-1.1040039,0.8959961-1.9985962,2-2h2c1.1040039,0.0014038,1.9985962,0.8959961,2,2V21z M20,19c-0.0014038,1.1040039-0.8959961,1.9985962-2,2h-2v-6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3h-2c-1.6561279,0.0018311-2.9981689,1.3438721-3,3v6H6c-1.1040039-0.0014038-1.9985962-0.8959961-2-2v-8.7930298C3.9997559,9.6313477,4.2478027,9.0836182,4.6806641,8.7041016l6-5.2666016C11.0455933,3.1174927,11.5146484,2.9414673,12,2.9423828c0.4853516-0.0009155,0.9544067,0.1751099,1.3193359,0.4951172l6,5.2665405C19.7521973,9.0835571,20.0002441,9.6313477,20,10.2069702V19z"></path></svg> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Net Flix </span> 
+															<p class="text-muted tx-12"> 20 Mar 4:00PM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-danger font-weight-normal">-$10.00</div> 
+													</div> 
+												</div> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-danger bg-danger-transparent text-danger mt-1"> 
+														<span class="avatar-1">RT</span> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Rita Mark </span> 
+															<p class="text-muted tx-12"> 20 Mar 4:00PM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-success font-weight-normal">+$125</div> 
+													</div> 
+												</div> 
+												<div class="transaction-blog"> 
+													<div class="transaction-img rounded-50 border-warning bg-warning-transparent text-warning mt-1"> 
+														<span class="avatar-1">PE</span> 
+													</div> 
+													<div class="transaction-details d-flex"> 
+														<div>
+															<span class="text-dark tx-semibold"> Park Entri </span> 
+															<p class="text-muted tx-12"> 24 Mar 6:06PM</p>
+														</div> 
+														<div class="ms-auto fs-14 text-danger font-weight-normal">-$40.99</div> 
+													</div> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> 
+									<div class="card custom-card"> 
+										<div class="card-header border-bottom"> 
+											<div> 
+												<h3 class="card-title tx-18"><label class="card-content-label tx-15">SALES ANALYTICS</label></h3> 
+											</div> 
+										</div> 
+										<div class="card-body"> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Women's Fashion</span> <span class="float-end text-dark">86%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div class="progress-bar ht-7 progress-bar-striped progress-bar-animated wd-90p" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Electronics</span> <span class="float-end text-dark">83%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="83" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-85p bg-success" role="progressbar"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Mobiles</span> <span class="float-end text-dark">76%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="76" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-80p bg-info" role="progressbar"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Footwear</span> <span class="float-end text-dark">71%</span> </div> 
+												<div class="progress ht-7 mt-2"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="71" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-75p bg-secondary" role="progressbar"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Refridgerators</span> <span class="float-end text-dark">66%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-70p bg-warning" role="progressbar"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Furniture</span> <span class="float-end text-dark">60%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar ht-7 progress-bar-striped progress-bar-animated wd-65p bg-danger" role="progressbar"></div> 
+												</div> 
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Grocery</span> <span class="float-end text-dark">55%</span> </div> 
+												<div class="progress ht-7 mt-1"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="55" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-60p bg-primary" role="progressbar"></div> 
+												</div>
+											</div> 
+											<div class="clearfix mb-3"> 
+												<div class="clearfix"> <span class="float-start text-dark">Home</span> <span class="float-end text-dark">52%</span> </div> 
+												<div class="progress ht-7 mt-2"> 
+													<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="52" class="progress-bar ht-7  progress-bar-striped progress-bar-animated wd-55p bg-info" role="progressbar"></div> 
+												</div> 
+											</div> 
+										</div> 
+									</div> 
+								</div> 
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-4"> 
+									<div class="card custom-card"> 
+										<div class="card-header pb-1"> <h3 class="card-title mb-2 tx-18"><label class="card-content-label tx-15">SALES ACTIVITY</label></h3> </div> 
+										<div class="product-timeline card-body"> 
+											<ul class="timeline-1 mb-0"> 
+												<li class="mt-0"> 
+													<svg class="bg-primary-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M14.5,2L14.5,2C14.2,2,14,2.2,14,2.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v0C22,5.4,18.6,2,14.5,2z M15,9V3c3.2,0.2,5.7,2.8,6,6H15z M19.5,12.5h-8v-8C11.5,4.2,11.3,4,11,4c-5,0-9,4-9,9s4,9,9,9c5,0,9-4,9-9v0C20,12.7,19.8,12.5,19.5,12.5z M11.5,21c-4.4,0.3-8.2-3.1-8.5-7.5C2.7,9.1,6.1,5.3,10.5,5v8c0,0.3,0.2,0.5,0.5,0.5h8C18.7,17.5,15.5,20.7,11.5,21z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Total Products</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">2 days ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">1.2k New Products</p>
+												</li> 
+												<li class="mt-0"> 
+													<svg class="bg-danger-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5,17h-15C5.6715698,17,5,16.3284302,5,15.5S5.6715698,14,6.5,14h10.9638672c1.2661133,0.0041504,2.3724365-0.8544312,2.6826172-2.0819702l1.8378906-7.2959595c0.0680542-0.2669678-0.0932617-0.5385742-0.3602905-0.6066284C21.5834961,4.005127,21.5418091,3.999939,21.5,4H6.3908691L6.3642578,3.8935547C6.0869751,2.7798462,5.0861816,1.9986572,3.9384766,2H2.5C2.223877,2,2,2.223877,2,2.5S2.223877,3,2.5,3h1.4384766C4.6269531,2.9990234,5.227356,3.4676514,5.3935547,4.1357422L7.609375,13H6.5C5.1192627,13,4,14.1192627,4,15.5S5.1192627,18,6.5,18h1.0124512C7.1818848,18.4303589,7.0018311,18.9573364,7,19.5C7,20.8807373,8.1192627,22,9.5,22s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5h4.0249023C15.1818848,18.4303589,15.0018311,18.9573364,15,19.5c0,1.3807373,1.1192627,2.5,2.5,2.5s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5H21.5c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,17,21.5,17z M6.6416016,5h14.2167969l-1.6816406,6.6738281C18.9780884,12.4567871,18.2716675,13.0037842,17.4638672,13H8.65625L6.6416016,5z M9.5,21C8.6715698,21,8,20.3284302,8,19.5S8.6715698,18,9.5,18s1.5,0.6715698,1.5,1.5C10.9990845,20.328064,10.328064,20.9990845,9.5,21z M17.5,21c-0.8284302,0-1.5-0.6715698-1.5-1.5s0.6715698-1.5,1.5-1.5s1.5,0.6715698,1.5,1.5C18.9990845,20.328064,18.328064,20.9990845,17.5,21z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Total Sales</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">25 mins ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">1.1k New Sales</p>
+												</li> 
+												<li class="mt-0"> 
+													<svg class="bg-success-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M9.5,2C9.223877,2,9,2.223877,9,2.5v19c0,0.0001831,0,0.0003662,0,0.0005493C9.0001831,21.7765503,9.223999,22.0001831,9.5,22c0.0001831,0,0.0003662,0,0.0006104,0C9.7765503,21.9998169,10.0001831,21.776001,10,21.5v-19C10,2.223877,9.776123,2,9.5,2z M4.5,12C4.223877,12,4,12.223877,4,12.5v9c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,21.7765503,4.223999,22.0001831,4.5,22c0.0001831,0,0.0003662,0,0.0006104,0C4.7765503,21.9998169,5.0001831,21.776001,5,21.5v-9C5,12.223877,4.776123,12,4.5,12z M19.5,16c-0.276123,0-0.5,0.223877-0.5,0.5v5c0,0.0001831,0,0.0003662,0,0.0005493C19.0001831,21.7765503,19.223999,22.0001831,19.5,22c0.0001831,0,0.0003662,0,0.0006104,0C19.7765503,21.9998169,20.0001831,21.776001,20,21.5v-5C20,16.223877,19.776123,16,19.5,16z M14.5,8C14.223877,8,14,8.223877,14,8.5v13c0,0.0001831,0,0.0003662,0,0.0005493C14.0001831,21.7765503,14.223999,22.0001831,14.5,22c0.0001831,0,0.0003662,0,0.0006104,0C14.7765503,21.9998169,15.0001831,21.776001,15,21.5v-13C15,8.223877,14.776123,8,14.5,8z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Total Revenue</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">40 mins ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">22.5K New Revenue</p>
+												</li> 
+												<li class="mt-0"> 
+													<svg class="bg-warning-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Total Profit</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">1 hour ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">4k New Profit</p>
+												</li> 
+												<li class="mt-0"> 
+													<svg class="bg-purple-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Customer Visits</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">1 day ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">16% Increased</p>
+												</li> 
+												<li class="mt-0"> 
+													<svg class="bg-primary-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.8534546,7.1464844l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-14,14C2.0526733,16.2402344,2,16.3673706,2,16.5v5.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l14-14c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221C22.0487671,7.6581421,22.0487061,7.3416138,21.8534546,7.1464844z M7.2930298,21H3v-4.2930298l10.671814-10.671814l4.2926025,4.293457L7.2930298,21z M18.6714478,9.621582l-4.2926636-4.293396L16.5,3.2069702L20.7930298,7.5L18.6714478,9.621582z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Customer Reviews</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">1 day ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">1.4k Reviews</p>
+												</li> 
+												<li class="mt-0 mb-0"> 
+													<svg class="bg-danger-gradient text-white product-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path fill="#ffffff" d="M21.5,17h-15C5.6715698,17,5,16.3284302,5,15.5S5.6715698,14,6.5,14h10.9638672c1.2661133,0.0041504,2.3724365-0.8544312,2.6826172-2.0819702l1.8378906-7.2959595c0.0680542-0.2669678-0.0932617-0.5385742-0.3602905-0.6066284C21.5834961,4.005127,21.5418091,3.999939,21.5,4H6.3908691L6.3642578,3.8935547C6.0869751,2.7798462,5.0861816,1.9986572,3.9384766,2H2.5C2.223877,2,2,2.223877,2,2.5S2.223877,3,2.5,3h1.4384766C4.6269531,2.9990234,5.227356,3.4676514,5.3935547,4.1357422L7.609375,13H6.5C5.1192627,13,4,14.1192627,4,15.5S5.1192627,18,6.5,18h1.0124512C7.1818848,18.4303589,7.0018311,18.9573364,7,19.5C7,20.8807373,8.1192627,22,9.5,22s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5h4.0249023C15.1818848,18.4303589,15.0018311,18.9573364,15,19.5c0,1.3807373,1.1192627,2.5,2.5,2.5s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5H21.5c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,17,21.5,17z M6.6416016,5h14.2167969l-1.6816406,6.6738281C18.9780884,12.4567871,18.2716675,13.0037842,17.4638672,13H8.65625L6.6416016,5z M9.5,21C8.6715698,21,8,20.3284302,8,19.5S8.6715698,18,9.5,18s1.5,0.6715698,1.5,1.5C10.9990845,20.328064,10.328064,20.9990845,9.5,21z M17.5,21c-0.8284302,0-1.5-0.6715698-1.5-1.5s0.6715698-1.5,1.5-1.5s1.5,0.6715698,1.5,1.5C18.9990845,20.328064,18.328064,20.9990845,17.5,21z"></path></svg> 
+													<span class="tx-semibold mb-4 tx-14 ms-3">Total Orders</span> 
+													<a href="javascript:;" class="float-end tx-11 text-muted">35 mins ago</a> 
+													<p class="mb-0 text-muted tx-12 ms-3">1k New Orders</p>
+												</li> 
+											</ul> 
+										</div> 
+									</div> 
+								</div> 
+							</div> -->
+							<!--End row--> 
+							<!--Row--> 
+							<div class="row row-sm"> 
+								<div class="col-lg-12"> 
+									<div class="card custom-card"> 
+										<div class="card-header border-bottom"> 
+											<h3 class="card-title tx-18"><label class="card-content-label tx-15">RECENT ORDERS</label></h3> 
+										</div> 
+										<div class="card-body"> 
+											<div class="table-responsive"> 
+												<div id="recentorders_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+													
+													<div class="row">
+														<div class="col-sm-12">
+															<table class="table table-bordered table-striped table-hover text-nowrap border-bottom mb-0 border dataTable no-footer" id="recentorders" role="grid" aria-describedby="recentorders_info"> 
+																<thead>
+																	<tr role="row">
+																		<th class="wd-lg-10p sorting" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-label="CUSTOMER: activate to sort column ascending" style="width: 223.156px;">CUSTOMER</th>
+																		<th class="wd-lg-10p sorting sorting_asc" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ORDER ID: activate to sort column descending" style="width: 223.156px;">ORDER ID</th>
+																		<th class="wd-lg-10p sorting" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-label="DATE: activate to sort column ascending" style="width: 223.156px;">DATE</th>
+																		<th class="wd-lg-10p sorting" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-label="PRICE: activate to sort column ascending" style="width: 223.156px;">PRICE</th>
+																		<th class="wd-lg-10p sorting" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-label="STATUS: activate to sort column ascending" style="width: 223.156px;">STATUS</th>
+																		<th class="wd-lg-10p sorting" tabindex="0" aria-controls="recentorders" rowspan="1" colspan="1" aria-label="COUNTRY: activate to sort column ascending" style="width: 224.219px;">COUNTRY</th>
+																	</tr> 
+																</thead> 
+																<tbody> 
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"><img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/1.jpg}"> </span><span class="mt-2 ms-2">Andrea Sun </span> -->Andrea Sun</td><td class="font-weight-normal sorting_1">#10001</td><td class="text-muted tx-13">01 MAR 2021</td><td class="font-weight-normal">$146</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Australia</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/2.jpg}"> </span><span class="mt-2 ms-2"> Ben Shall </span> -->Ben Shall</td><td class="font-weight-normal sorting_1">#10002</td><td class="text-muted tx-13">02 MAR 2021</td><td class="font-weight-normal">$179</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Australia</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <div class="avatar bg-info-transparent text-info"> CT </div><span class="mt-2 ms-2"> Cinel Toa</span> -->Cinel Toa</td><td class="font-weight-normal sorting_1">#10003</td><td class=" text-muted tx-13">03 MAR 2021</td><td class="font-weight-normal">$188</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Canada</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/4.jpg}"> </span><span class="mt-2 ms-2">Dia Mark </span> -->Dia Mark</td><td class="font-weight-normal sorting_1">#10004</td><td class="text-muted tx-13">04 MAR 2021</td><td class="font-weight-normal">$193</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Denmark</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <div class="avatar bg-success-transparent text-success"> ER </div><span class="mt-2 ms-2"> Eutica Ria </span> -->Eutica Ria</td><td class="font-weight-normal sorting_1">#10005</td><td class="text-muted tx-13">05 MAR 2021</td><td class="font-weight-normal">$209</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">France</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/6.jpg}"> </span><span class="mt-2 ms-2"> Frano Rit </span> -->Frano Rit</td><td class="font-weight-normal sorting_1">#10006</td><td class="text-muted tx-13">06 MAR 2021</td><td class="font-weight-normal">$218</td><td class=""><span class="badge rounded-pill text-warning bg-warning-transparent py-1 px-2">Pending</span></td><td class="text-dark tx-13">Iran</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/7.jpg}"> </span><span class="mt-2 ms-2">Goldie Mat </span> -->Goldie Mat</td><td class="font-weight-normal sorting_1">#10007</td><td class="text-muted tx-13">07 MAR 2021</td><td class="font-weight-normal">$227</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">London</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <div class="avatar bg-danger-transparent text-danger"> HD </div><span class="mt-2 ms-2"> Henry Dia </span> -->Henry Dia</td><td class="font-weight-normal sorting_1">#10008</td><td class="text-muted tx-13">08 MAR 2021</td><td class="font-weight-normal">$234</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Malasia</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/9.jpg}"> </span><span class="mt-2 ms-2"> Hustro Mark </span> -->Hustro Mark</td><td class="font-weight-normal sorting_1">#10009</td><td class="text-muted tx-13">09 MAR 2021</td><td class="font-weight-normal">$246</td><td class=""><span class="badge rounded-pill text-danger bg-danger-transparent py-1 px-2">Cancelled</span></td><td class="text-dark tx-13">Malasia</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/10.jpg}"> </span><span class="mt-2 ms-2">Jack Fince </span> -->Jack Fince</td><td class="font-weight-normal sorting_1">#10010</td><td class="text-muted tx-13">10 MAR 2021</td><td class="font-weight-normal">$253</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent py-1 px-2">Delivered</span></td><td class="text-dark tx-13">Russia</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/11.jpg}"> </span> <span class="mt-2 ms-2"> Kanae Tom</span> -->Kanae Tom </td><td class="font-weight-normal sorting_1">#10011</td><td class="text-muted tx-13">11 MAR 2021</td><td class="font-weight-normal">$260</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent px-2">Delivered</span></td><td class="text-dark tx-13">Sweden</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <div class="avatar bg-secondary-transparent text-secondary"> LD </div> <span class="mt-2 ms-2"> Luci Dia </span> -->Luci Dia </td><td class="font-weight-normal sorting_1">#10012</td><td class="text-muted tx-13">12 MAR 2021</td><td class="font-weight-normal">$268</td><td class=""><span class="badge rounded-pill text-warning bg-warning-transparent px-2">Pending</span></td><td class="text-dark tx-13">Sweden</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/3.jpg}"> </span> <span class="mt-2 ms-2">Mercy Rico</span> -->Mercy Rico </td><td class="font-weight-normal sorting_1">#10013</td><td class="text-muted tx-13">13 MAR 2021</td><td class="font-weight-normal">$275</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent px-2">Delivered</span></td><td class="text-dark tx-13">Brazil</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <div class="avatar bg-warning-transparent text-warning"> NR </div> <span class="mt-2 ms-2"> Niccy Ricco </span> -->Niccy Ricco </td><td class="font-weight-normal sorting_1">#10014</td><td class="text-muted tx-13">14 MAR 2021</td><td class="font-weight-normal">$286</td><td class=""><span class="badge rounded-pill text-success bg-success-transparent px-2">Delivered</span></td><td class="text-dark tx-13">UK</td></tr>
+																	<tr><td class="font-weight-bold d-flex"><!-- <span class="main-img-user"> <img alt="avatar" class="rounded-circle" th:src="@{assets/img/users/5.jpg}"> </span> <span class="mt-2 ms-2"> Vashti Faw </span> -->Vashti Faw </td><td class="font-weight-normal sorting_1">#10015</td><td class="text-muted tx-13">15 MAR 2021</td><td class="font-weight-normal">$289</td><td class=""><span class="badge rounded-pill text-danger bg-danger-transparent px-2">Cancelled</span></td><td class="text-dark tx-13">USA</td></tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div> 
+											</div> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--End row--> 
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>		 
+	</div>
+	
+	<div class="modal fade" id="scrollmodal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable" role="document">
+			<div class="modal-content modal-content-demo">
+				<div class="modal-header">
+					<h6 class="modal-title">Scrolling With Content Modal</h6>
+					<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+				</div>
+				<div class="modal-body"><p>TEST DATA</p></div>
+				<div class="modal-footer">
+					<button class="btn ripple btn-success" type="button">Save changes</button>
+					<button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- End Main Content--> 
+	<!-- Main Footer--> 
+	<div th:replace="fragments/footer :: sasfooter"></div>
+	<!--End Footer--> 
+	</div> 
+	<!-- End Page --> 
+	<!-- Back-to-top --> 
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+	</div>
+	<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{assets/js/plugins/jquery.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<script th:src="@{assets/js/plugins/chart/chartjs-plugin-datalabels@2.0.0-rc.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+		
+	<script th:src="@{assets/js/themeColors.js}"></script>
+	<script th:src="@{assets/js/sticky.js}"></script>
+	<script th:src="@{assets/js/switcher-styles.js}"></script>
+	<script th:src="@{assets/js/custom.js}"></script>
+	<script th:src="@{assets/js/switcher/switcher.js}"></script>
+	<script>
+		$(function() {
+			'use strict'
+			var ctx7 = document.getElementById('chartDonut');
+			var myPieChart7 = new Chart(ctx7, {
+				type: 'pie',
+				data: {
+					labels: ['Total Registrations', 'Pending at SAP', 'Pending at Consumer', 'In Progress'],
+					datasets: [{
+						data: ["[[${reginfo.totalreg}]]", "[[${reginfo.pending_atsap}]]", "[[${reginfo.pending_atcons}]]", "[[${reginfo.inprogress}]]"],
+						backgroundColor: ['#4d65d9', '#19b159', '#fd6074', '#007ea7']
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					responsive: true,
+					legend: {
+						display: false,
+					},
+					animation: {
+						animateScale: true,
+						animateRotate: true
+					}
+				}
+			});
+		});
+		
+		/* Bar-Chart2*/
+		var labels="[[${labels}]]";
+		var nr_data="[[${nr_data}]]";
+		var ltm_data="[[${ltm_data}]]";
+		//console.log("labels>>"+labels);
+		var labelsData = [];
+		var nrData = [];
+		var ltmData = [];
+		labelsData=labels.split(",");
+		nrData=nr_data.split(",");
+		ltmData=ltm_data.split(",");
+		
+		var ctx = document.getElementById("chartBar2").getContext('2d');
+		//alert(ctx);
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: labelsData,
+				datasets: [{
+					label: "NR",
+					data: nrData,
+					borderColor: "#4d65d9",
+					borderWidth: "0",
+					backgroundColor: "#4d65d9"
+				}, {
+					label: "LTM",
+					data: ltmData,
+					borderColor: "#53caed",
+					borderWidth: "0",
+					backgroundColor: "#53caed"
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				datalabels: {
+					  formatter: (value, ctx) => {
+					    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+					  },
+					},
+				scales: {
+					x: {
+						ticks: {
+							fontColor: "#8492a6",
+						 },
+						gridLines: {
+							color: 'rgba(119, 119, 142, 0.2)'
+						}
+					},
+					y: {
+						ticks: {
+							beginAtZero: true,
+							fontColor: "#8492a6",
+						},
+						gridLines: {
+							color: 'rgba(119, 119, 142, 0.2)'
+						},
+					}
+				},
+				legend: {
+					labels: {
+						fontColor: "#8492a6"
+					},
+				},
+			}
+		});
+	</script>
+</body>
+</html>

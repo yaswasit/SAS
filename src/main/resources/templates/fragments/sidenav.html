@@ -1,0 +1,774 @@
+<html>
+<body>
+	<div th:fragment="sasleftnav">
+		<ul class="menu-nav nav" style="margin-left: 0px; margin-right: 0px;" th:if="${menuId==1}"> 
+  			<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'AE', 'AAE', 'ADE')"> 
+				<a class="nav-link" th:href="@{/sasportal}"> 
+					<i class="si si-home sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="SAS Portal" data-bs-original-title="si-home" aria-label="si-home"></i>
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+					<path d="M 12 2 A 1 1 0 0 0 11.289062 2.296875 L 1.203125 11.097656 A 0.5 0.5 0 0 0 1 11.5 A 0.5 0.5 0 0 0 1.5 12 L 4 12 L 4 20 C 4 20.552 4.448 21 5 21 L 9 21 C 9.552 21 10 20.552 10 20 L 10 14 L 14 14 L 14 20 C 14 20.552 14.448 21 15 21 L 19 21 C 19.552 21 20 20.552 20 20 L 20 12 L 22.5 12 A 0.5 0.5 0 0 0 23 11.5 A 0.5 0.5 0 0 0 22.796875 11.097656 L 12.716797 2.3027344 A 1 1 0 0 0 12.710938 2.296875 A 1 1 0 0 0 12 2 z"></path></svg> -->
+					<span class="sidemenu-label">Home</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li>
+			
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/userdashboard?menuId=1}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M10.5,13h-7C3.2,13,3,13.2,3,13.5v7C3,20.8,3.2,21,3.5,21h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,13.2,10.8,13,10.5,13z M10,20H4v-6h6V20z M10.5,3h-7C3.2,3,3,3.2,3,3.5v7C3,10.8,3.2,11,3.5,11h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,3.2,10.8,3,10.5,3z M10,10H4V4h6V10z M20.5,3h-7C13.2,3,13,3.2,13,3.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v-7C21,3.2,20.8,3,20.5,3z M20,10h-6V4h6V10z M20.5,16.5h-3v-3c0-0.3-0.2-0.5-0.5-0.5s-0.5,0.2-0.5,0.5v3h-3c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h3v3c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v-3h3c0.3,0,0.5-0.2,0.5-0.5S20.8,16.5,20.5,16.5z"></path></svg> -->
+					<!-- <i class="ti-layers-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-original-title="ti-layers-alt" aria-label="ti-layers-alt"></i> -->
+					<i class="fe fe-grid sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-grid" aria-label="fe fe-grid"></i>
+					<span class="sidemenu-label">Dashboard</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,17h-15C5.6715698,17,5,16.3284302,5,15.5S5.6715698,14,6.5,14h10.9638672c1.2661133,0.0041504,2.3724365-0.8544312,2.6826172-2.0819702l1.8378906-7.2959595c0.0680542-0.2669678-0.0932617-0.5385742-0.3602905-0.6066284C21.5834961,4.005127,21.5418091,3.999939,21.5,4H6.3908691L6.3642578,3.8935547C6.0869751,2.7798462,5.0861816,1.9986572,3.9384766,2H2.5C2.223877,2,2,2.223877,2,2.5S2.223877,3,2.5,3h1.4384766C4.6269531,2.9990234,5.227356,3.4676514,5.3935547,4.1357422L7.609375,13H6.5C5.1192627,13,4,14.1192627,4,15.5S5.1192627,18,6.5,18h1.0124512C7.1818848,18.4303589,7.0018311,18.9573364,7,19.5C7,20.8807373,8.1192627,22,9.5,22s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5h4.0249023C15.1818848,18.4303589,15.0018311,18.9573364,15,19.5c0,1.3807373,1.1192627,2.5,2.5,2.5s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5H21.5c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,17,21.5,17z M6.6416016,5h14.2167969l-1.6816406,6.6738281C18.9780884,12.4567871,18.2716675,13.0037842,17.4638672,13H8.65625L6.6416016,5z M9.5,21C8.6715698,21,8,20.3284302,8,19.5S8.6715698,18,9.5,18s1.5,0.6715698,1.5,1.5C10.9990845,20.328064,10.328064,20.9990845,9.5,21z M17.5,21c-0.8284302,0-1.5-0.6715698-1.5-1.5s0.6715698-1.5,1.5-1.5s1.5,0.6715698,1.5,1.5C18.9990845,20.328064,18.328064,20.9990845,17.5,21z"></path></svg> -->
+					<i class="si si-bulb sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="New Registrations" data-bs-original-title="si-bulb" aria-label="si-bulb"></i> 
+					<span class="sidemenu-label">New Registrations</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">New Registrations</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/nrapplicationstatus/nr/${menuId}|}">NR Application Status &amp; Documents View</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/documentsverification/vd/${menuId}|}">NR Verification</a></li> 
+					<!-- <li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/fieldverification/${menuId}|}">Field Verification</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR OTP Updation</a></li>  -->
+					<!-- <li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/nscstobereleased/ntr/${menuId}|}">NSCs To be Released</a></li>  -->
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Documents To be Uploaded</br>(Resubmitted From EBS)</a></li> 
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,17h-15C5.6715698,17,5,16.3284302,5,15.5S5.6715698,14,6.5,14h10.9638672c1.2661133,0.0041504,2.3724365-0.8544312,2.6826172-2.0819702l1.8378906-7.2959595c0.0680542-0.2669678-0.0932617-0.5385742-0.3602905-0.6066284C21.5834961,4.005127,21.5418091,3.999939,21.5,4H6.3908691L6.3642578,3.8935547C6.0869751,2.7798462,5.0861816,1.9986572,3.9384766,2H2.5C2.223877,2,2,2.223877,2,2.5S2.223877,3,2.5,3h1.4384766C4.6269531,2.9990234,5.227356,3.4676514,5.3935547,4.1357422L7.609375,13H6.5C5.1192627,13,4,14.1192627,4,15.5S5.1192627,18,6.5,18h1.0124512C7.1818848,18.4303589,7.0018311,18.9573364,7,19.5C7,20.8807373,8.1192627,22,9.5,22s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5h4.0249023C15.1818848,18.4303589,15.0018311,18.9573364,15,19.5c0,1.3807373,1.1192627,2.5,2.5,2.5s2.5-1.1192627,2.5-2.5c-0.0018311-0.5426636-0.1818848-1.0696411-0.5124512-1.5H21.5c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,17,21.5,17z M6.6416016,5h14.2167969l-1.6816406,6.6738281C18.9780884,12.4567871,18.2716675,13.0037842,17.4638672,13H8.65625L6.6416016,5z M9.5,21C8.6715698,21,8,20.3284302,8,19.5S8.6715698,18,9.5,18s1.5,0.6715698,1.5,1.5C10.9990845,20.328064,10.328064,20.9990845,9.5,21z M17.5,21c-0.8284302,0-1.5-0.6715698-1.5-1.5s0.6715698-1.5,1.5-1.5s1.5,0.6715698,1.5,1.5C18.9990845,20.328064,18.328064,20.9990845,17.5,21z"></path></svg> -->
+					<i class="si si-bulb sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="New Registrations" data-bs-original-title="si-bulb" aria-label="si-bulb"></i> 
+					<span class="sidemenu-label">New Registrations</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">New Registrations</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Application Status</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Documents Approval</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Test Report Download/Upload</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Service Approval</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Request for OTP generation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Request for Revocation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Status Report of OTP regeneration</a></li> 
+				</ul> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path></svg> --> 
+					<i class="fa fa-building sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="LTM" data-bs-original-title="fa fa-building" aria-label="fa fa-building"></i>
+					<span class="sidemenu-label">LTM</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+												
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">LTM</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmapplicationstatus/ltm/${menuId}|}">LTM Application Status &amp; Documents View</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmaddconnections/ac/${menuId}|}">Add Connections</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmsendotptoconsumer/ltm/${menuId}|}">Sending OTP to Consumer</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmtestreport/ltm/${menuId}|}">LTM Test Report Generation</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmotpupdation/ltm/${menuId}|}">LTM OTP Updation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/ltmtobereleased/ltm/${menuId}|}">LTM To be Released</a></li>
+					<!-- <li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Documents To be Uploaded</br>(Resubmitted From EBS)</a></li> --> 
+				</ul> 
+			</li> 
+			
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path></svg> --> 
+					<i class="fa fa-building sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="LTM" data-bs-original-title="fa fa-building" aria-label="fa fa-building"></i>
+					<span class="sidemenu-label">LTM</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+												
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">LTM</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Application Status &amp; Documents View</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Documents Approval</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Service Release Approval</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Request for Revocation</a></li> 
+					 
+				</ul> 
+			</li>
+			
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" id="agl_service" th:href="@{|/nsts/agltobereleasedlist/${menuId}|}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="mdi mdi-anchor sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="AGL Services to be Released" data-bs-original-title="mdi-anchor" aria-label="mdi-anchor"></i>
+					<span class="sidemenu-label">AGL Services to be Released</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path></svg> --> 
+					<i class="fe fe-smartphone sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-smartphone" aria-label="fe fe-smartphone"></i>
+					<span class="sidemenu-label">OTP</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">OTP</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">OTP Regeneration</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Request for OTP Generation</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Status Report of OTP Regeneration</a></li> 
+				 
+				</ul> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"></path></svg> --> 
+					<i class="mdi mdi-autorenew sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-autorenew" aria-label="mdi-autorenew"></i>
+					<span class="sidemenu-label">Revocation Requests</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Revocation Requests</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Request</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Resubmitted List</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Pending Report</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Request</a></li>
+				 
+				</ul> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="ti-bar-chart sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Reports" data-bs-original-title="ti-bar-chart" aria-label="ti-bar-chart"></i> 
+					<span class="sidemenu-label">Reports</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Reports</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/newregistrations/nr/${menuId}|}">NSCs Registrations</a></li> 
+					<!-- <li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/webregistrations/${menuId}|}">Web Registrations</a></li> --> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/pendingconnections/pc/${menuId}|}">Pending Connections</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/rejectedconnections/rc/${menuId}|}">Rejected Connections</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/estimationrequired/er/${menuId}|}">Estimation Required</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/releasednrs/rns/${menuId}|}">Released New Services</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/newservicesreturn/nsr/${menuId}|}">New Services Return</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/nsts/nrtestreport/tr/${menuId}|}">NSCs Test Report</a></li>
+				 
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 511.999"><path d="M476.335 35.664v.001c47.554 47.552 47.552 125.365.002 172.918l-101.729 101.73c-60.027 60.025-162.073 42.413-194.762-32.45 35.888-31.191 53.387-21.102 87.58-6.638 20.128 8.512 43.74 3.955 60.08-12.387l99.375-99.371c21.49-21.493 21.492-56.662 0-78.155-21.489-21.488-56.677-21.472-78.151 0l-71.278 71.28c-23.583-11.337-50.118-14.697-75.453-10.07a121.476 121.476 0 0118.767-24.207l82.651-82.65c47.554-47.551 125.365-47.555 172.918-.001zM35.664 476.334l.001.001c47.554 47.552 125.365 47.552 172.917 0l85.682-85.682a121.496 121.496 0 0019.325-25.157c-27.876 6.951-57.764 4.015-83.932-8.805l-70.192 70.19c-21.472 21.471-56.658 21.492-78.149 0-21.492-21.491-21.493-56.658 0-78.149l99.375-99.376c20.363-20.363 61.002-26.435 91.717 1.688 29.729-3.133 41.275-8.812 59.742-26.493-39.398-69.476-137.607-80.013-194.757-22.863L35.664 303.417c-47.552 47.553-47.552 125.364 0 172.917z"/></svg> --> 
+					<i class="fe fe-link sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-link" aria-label="fe fe-link"></i>
+					<span class="sidemenu-label">WBS(SCNO) Link</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 511.999"><path d="M476.335 35.664v.001c47.554 47.552 47.552 125.365.002 172.918l-101.729 101.73c-60.027 60.025-162.073 42.413-194.762-32.45 35.888-31.191 53.387-21.102 87.58-6.638 20.128 8.512 43.74 3.955 60.08-12.387l99.375-99.371c21.49-21.493 21.492-56.662 0-78.155-21.489-21.488-56.677-21.472-78.151 0l-71.278 71.28c-23.583-11.337-50.118-14.697-75.453-10.07a121.476 121.476 0 0118.767-24.207l82.651-82.65c47.554-47.551 125.365-47.555 172.918-.001zM35.664 476.334l.001.001c47.554 47.552 125.365 47.552 172.917 0l85.682-85.682a121.496 121.496 0 0019.325-25.157c-27.876 6.951-57.764 4.015-83.932-8.805l-70.192 70.19c-21.472 21.471-56.658 21.492-78.149 0-21.492-21.491-21.493-56.658 0-78.149l99.375-99.376c20.363-20.363 61.002-26.435 91.717 1.688 29.729-3.133 41.275-8.812 59.742-26.493-39.398-69.476-137.607-80.013-194.757-22.863L35.664 303.417c-47.552 47.553-47.552 125.364 0 172.917z"/></svg> -->
+					<i class="fe fe-smartphone sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-smartphone" aria-label="fe fe-smartphone"></i> 
+					<span class="sidemenu-label">Section Wise OTP Sent Report</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 511.999"><path d="M476.335 35.664v.001c47.554 47.552 47.552 125.365.002 172.918l-101.729 101.73c-60.027 60.025-162.073 42.413-194.762-32.45 35.888-31.191 53.387-21.102 87.58-6.638 20.128 8.512 43.74 3.955 60.08-12.387l99.375-99.371c21.49-21.493 21.492-56.662 0-78.155-21.489-21.488-56.677-21.472-78.151 0l-71.278 71.28c-23.583-11.337-50.118-14.697-75.453-10.07a121.476 121.476 0 0118.767-24.207l82.651-82.65c47.554-47.551 125.365-47.555 172.918-.001zM35.664 476.334l.001.001c47.554 47.552 125.365 47.552 172.917 0l85.682-85.682a121.496 121.496 0 0019.325-25.157c-27.876 6.951-57.764 4.015-83.932-8.805l-70.192 70.19c-21.472 21.471-56.658 21.492-78.149 0-21.492-21.491-21.493-56.658 0-78.149l99.375-99.376c20.363-20.363 61.002-26.435 91.717 1.688 29.729-3.133 41.275-8.812 59.742-26.493-39.398-69.476-137.607-80.013-194.757-22.863L35.664 303.417c-47.552 47.553-47.552 125.364 0 172.917z"/></svg> -->
+					<i class="mdi mdi-battery-charging-60 sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-battery-charging-60" aria-label="mdi-battery-charging-60"></i> 
+					<span class="sidemenu-label">Pending Services at EBS</span> 
+				</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/logout}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<!-- <i class="si si-logout sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="si-logout" aria-label="si-logout"></i> -->
+					<i class="fe fe-log-out sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="fe fe-log-out" aria-label="fe fe-log-out"></i> 
+					<span class="sidemenu-label">Sign Out</span> 
+				</a> 
+			</li> 
+		</ul> 
+		<ul class="menu-nav nav" style="margin-left: 0px; margin-right: 0px;" th:if="${menuId==2}"> 
+  			<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'AE', 'AAE', 'ADE')"> 
+			<a class="nav-link" th:href="@{/sasportal}"> 
+				<svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+				<path d="M 12 2 A 1 1 0 0 0 11.289062 2.296875 L 1.203125 11.097656 A 0.5 0.5 0 0 0 1 11.5 A 0.5 0.5 0 0 0 1.5 12 L 4 12 L 4 20 C 4 20.552 4.448 21 5 21 L 9 21 C 9.552 21 10 20.552 10 20 L 10 14 L 14 14 L 14 20 C 14 20.552 14.448 21 15 21 L 19 21 C 19.552 21 20 20.552 20 20 L 20 12 L 22.5 12 A 0.5 0.5 0 0 0 23 11.5 A 0.5 0.5 0 0 0 22.796875 11.097656 L 12.716797 2.3027344 A 1 1 0 0 0 12.710938 2.296875 A 1 1 0 0 0 12 2 z"></path></svg>
+				<span class="sidemenu-label">Home</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/ccuserdashboard?menuId=2}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M10.5,13h-7C3.2,13,3,13.2,3,13.5v7C3,20.8,3.2,21,3.5,21h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,13.2,10.8,13,10.5,13z M10,20H4v-6h6V20z M10.5,3h-7C3.2,3,3,3.2,3,3.5v7C3,10.8,3.2,11,3.5,11h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,3.2,10.8,3,10.5,3z M10,10H4V4h6V10z M20.5,3h-7C13.2,3,13,3.2,13,3.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v-7C21,3.2,20.8,3,20.5,3z M20,10h-6V4h6V10z M20.5,16.5h-3v-3c0-0.3-0.2-0.5-0.5-0.5s-0.5,0.2-0.5,0.5v3h-3c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h3v3c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v-3h3c0.3,0,0.5-0.2,0.5-0.5S20.8,16.5,20.5,16.5z"></path></svg> -->
+					<i class="ti-layers-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-original-title="ti-layers-alt" aria-label="ti-layers-alt"></i>
+					<span class="sidemenu-label">Dashboard</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{|/ccts/ccapplicationstatus/cs/${menuId}|}"> 
+					<!-- <a class="nav-sub-link" th:href="@{|/nsts/nrapplicationstatus/nr/${menuId}|}">
+					<svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<!-- <i class="typcn typcn-clipboard sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Complaint Status" data-bs-original-title="typcn typcn-clipboard" aria-label="typcn typcn-clipboard"></i> -->
+					<i class="ti-panel sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-panel" aria-label="ti-panel"></i>
+					<span class="sidemenu-label">Complaint Status</span> 
+				</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="mdi mdi-alarm-light sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Burnt Complaint Register" data-bs-original-title="mdi-alarm-light" aria-label="mdi-alarm-light"></i>
+					<span class="sidemenu-label">Burnt Complaint Register</span> 
+				</a> 
+			</li> 
+			<!-- <li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> 
+					<i class="ti-reload sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Restoration of Power Supply" data-bs-original-title="ti-reload" aria-label="ti-reload"></i>
+					<span class="sidemenu-label">Restoration of Power Supply</span> 
+				</a> 
+			</li> --> 
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{|/ccts/ccqualityofpowersupply/qps/${menuId}|}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fa fa-handshake-o sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Quality of Power Supply" data-bs-original-title="fa fa-handshake-o" aria-label="fa fa-handshake-o"></i>
+					<span class="sidemenu-label">Power Supply Complaints</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" th:href="@{|/ccts/cccategorychange/catc/${menuId}|}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fa fa-group sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Transfer of Ownership" data-bs-original-title="fa fa-group" aria-label="fa fa-group"></i>
+					<span class="sidemenu-label">Category Change</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" th:href="@{|/ccts/cccategorychange/catc/${menuId}|}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fa fa-group sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Transfer of Ownership" data-bs-original-title="fa fa-group" aria-label="fa fa-group"></i>
+					<span class="sidemenu-label">Category Change</span> 
+				</a> 
+			</li> 
+			<!-- <li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE','ADE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<i class="fa fa-group sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-group" aria-label="fa fa-group"></i>
+					<span class="sidemenu-label">Transfer of Ownership</br>and Conversion of Services</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+					<li class="side-menu-label1"><a href="javascript:;">Transfer of Ownership</br>and Conversion of Services</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Category Change Test report Upload</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Category Change Test Report Download</a></li> 
+				
+				</ul> 
+				<ul class="nav-sub" sec:authorize="hasAuthority('ADE')"> 
+					<li class="side-menu-label1"><a href="javascript:;">Transfer of Ownership</br>and Conversion of Services</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Category Change</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Category Change Test Report Download</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Category Change Test Report Download</a></li>
+				</ul>
+			</li> -->	
+		
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" th:href="@{|/ccts/ccburntlist/mc/${menuId}|}"> <!--  with-sub -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="fa fa-calendar-plus-o sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-calendar-plus-o" aria-label="fa fa-calendar-plus-o"></i>
+					<span class="sidemenu-label">Meter Complaints</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i>  -->
+				</a> 
+				<!-- <ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Meter Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/ccts/ccburntlist/mc/${menuId}|}">Meter Complaints including Netmeter Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Burnt Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">MRT Testing Notice Download</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">AE Request Date</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">MRT Test Report for Bill Revision</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Abstract of Test Reports</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Testing Dates Reports</a></li>
+				</ul> --> 
+			</li>		
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fa fa-area-chart sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-area-chart" aria-label="fa fa-area-chart"></i>
+					<span class="sidemenu-label">Meter Complaints including</br>Netmeter Complaints</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="si si-calculator sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="si-calculator" aria-label="si-calculator"></i>
+					<span class="sidemenu-label">MRT Test Report for</br>Bill Revision</span> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="mdi mdi-battery-charging-100 sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-battery-charging-100" aria-label="mdi-battery-charging-100"></i> 
+					<span class="sidemenu-label">Additional Load/</br>Deration Load</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Additional Load/</br>Deration Load</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Test Report Download</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Test Report Upload</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Load Change Complaints</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Additional Load Complaints(DC CASES)</a></li>
+				</ul> 
+			</li>	
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="mdi mdi-battery-charging-100 sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-battery-charging-100" aria-label="mdi-battery-charging-100"></i>
+					<span class="sidemenu-label">Additional Load</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Additional Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Additional Load Complaints(DC CASES)</a></li>
+				</ul> 
+			</li>	
+			
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="fa fa-chain-broken sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-chain-broken" aria-label="fa fa-chain-broken"></i>
+					<span class="sidemenu-label">Dismantle Complaints</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Dismantle Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Dismantle Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Joint Inspection Report</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">No Due Uploaded Complaints</a></li>
+				</ul> 
+			</li>	
+				
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="si si-book-open sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="si-book-open" aria-label="si-book-open"></i>
+					<span class="sidemenu-label">Complaints against Consumer Bills</span> 
+				</a> 
+			</li>
+			
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="si si-docs sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="si-docs" aria-label="si-docs"></i>
+					<span class="sidemenu-label">Other Complaints</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-file-text sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-file-text" aria-label="fe fe-file-text"></i> 
+					<span class="sidemenu-label">Damaged Equipment CCs</br>due to Third Party (List)</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fe fe-layers sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-layers" aria-label="fe fe-layers"></i>
+					<span class="sidemenu-label">Estimation Required Complaints</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fe fe-briefcase sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-briefcase" aria-label="fe fe-briefcase"></i>
+					<span class="sidemenu-label">CC Request for Revocation</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-share sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-share" aria-label="fe fe-share"></i> 
+					<span class="sidemenu-label">CC Documents Upload</br>(Resubmitted From EBS)</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-video sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-video" aria-label="fe fe-video"></i> 
+					<span class="sidemenu-label">Meter Search</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="far fa-address-card sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="far fa-address-card" aria-label="far fa-address-card"></i>
+					<span class="sidemenu-label">Title/Address/Name CC Documents</br>to be Uploaded</br>(Resubmitted from EBS)</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fe fe-upload-cloud sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-upload-cloud" aria-label="fe fe-upload-cloud"></i>
+					<span class="sidemenu-label">Section CC Documents Upload</br>(Resubmitted from EBS)</span> 
+				</a> 
+			</li>	
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/logout}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-log-out sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="fe fe-log-out" aria-label="fe fe-log-out"></i> 
+					<span class="sidemenu-label">Sign Out</span> 
+				</a> 
+			</li>
+		</ul>	
+		<ul class="menu-nav nav" style="margin-left: 0px; margin-right: 0px;" th:if="${menuId==3}"> 
+  			<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'AE', 'AAE', 'ADE')"> 
+			<a class="nav-link" th:href="@{/sasportal}"> 
+				<svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+				<path d="M 12 2 A 1 1 0 0 0 11.289062 2.296875 L 1.203125 11.097656 A 0.5 0.5 0 0 0 1 11.5 A 0.5 0.5 0 0 0 1.5 12 L 4 12 L 4 20 C 4 20.552 4.448 21 5 21 L 9 21 C 9.552 21 10 20.552 10 20 L 10 14 L 14 14 L 14 20 C 14 20.552 14.448 21 15 21 L 19 21 C 19.552 21 20 20.552 20 20 L 20 12 L 22.5 12 A 0.5 0.5 0 0 0 23 11.5 A 0.5 0.5 0 0 0 22.796875 11.097656 L 12.716797 2.3027344 A 1 1 0 0 0 12.710938 2.296875 A 1 1 0 0 0 12 2 z"></path></svg>
+				<span class="sidemenu-label">Home</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/mmdashboard?menuId=3}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M10.5,13h-7C3.2,13,3,13.2,3,13.5v7C3,20.8,3.2,21,3.5,21h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,13.2,10.8,13,10.5,13z M10,20H4v-6h6V20z M10.5,3h-7C3.2,3,3,3.2,3,3.5v7C3,10.8,3.2,11,3.5,11h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,3.2,10.8,3,10.5,3z M10,10H4V4h6V10z M20.5,3h-7C13.2,3,13,3.2,13,3.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v-7C21,3.2,20.8,3,20.5,3z M20,10h-6V4h6V10z M20.5,16.5h-3v-3c0-0.3-0.2-0.5-0.5-0.5s-0.5,0.2-0.5,0.5v3h-3c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h3v3c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v-3h3c0.3,0,0.5-0.2,0.5-0.5S20.8,16.5,20.5,16.5z"></path></svg> -->
+					<i class="ti-layers-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-original-title="ti-layers-alt" aria-label="ti-layers-alt"></i>
+					<span class="sidemenu-label">Dashboard</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE','AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="fa fa-calendar-check-o sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-calendar-check-o" aria-label="fa fa-calendar-check-o"></i>
+					<span class="sidemenu-label">Meter Allotment</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Meter Allotment</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link"  th:href="@{|/mm/burntmeterallotment/mm/${menuId}|}">Burnt Allotment</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/mm/meterallotment/mm/${menuId}|}">Allotment</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" th:href="@{|/mm/cancellation/mm/${menuId}|}">Cancellation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Old High Quality/Non IR <br> Meters Replaced Entry</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Smart Prepaid <br> Meters Replaced Entry</a></li>
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE','AAE','ADE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="fa fa-calendar-times-o sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-calendar-times-o" aria-label="fa fa-calendar-times-o"></i> 
+					<span class="sidemenu-label">Removed Meters</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+					<li class="side-menu-label1"><a href="javascript:;">Removed Meters</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Burnt Removed Meters Entry</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Burnt/Additional</br> Old Meter Modification</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Removed Meters Entry</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Cancellation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Meter Changes Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Non HighQuality</br>Meter Changes Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Dismantled Meters Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">TC Seals Updation</br>(UDC,OSL Allotments)</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Net Meter Status</a></li>
+				</ul>
+				<ul class="nav-sub" sec:authorize="hasAuthority('ADE')"> 
+					<li class="side-menu-label1"><a href="javascript:;">Removed Meters</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Meter Changes Report</a></li>
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="ti-shopping-cart-full sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-shopping-cart-full" aria-label="ti-shopping-cart-full"></i>
+					<span class="sidemenu-label">Handing Over to MRT</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Handing Over to MRT</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">T-Note Generation</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Report</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">MRT Reject Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Rejected Meters Handling</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Defective Meters(Un Used)</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Defective Meter Report</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">MRT Declared Burnt Out Services</a></li>
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('ADE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="ti-shopping-cart-full sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-shopping-cart-full" aria-label="ti-shopping-cart-full"></i>
+					<span class="sidemenu-label">Handing Over to MRT</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('AE', 'AAE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> --> 
+					<i class="ti-server sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-server" aria-label="ti-server"></i>
+					<span class="sidemenu-label">Rolling Stock</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+																				
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Rolling Stock</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Report</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Gate Pass Report</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Meter Seals Updation</br>(Drawn From Stores)</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Meter Search</a></li>
+				
+				</ul> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/logout}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="fe fe-log-out sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="fe fe-log-out" aria-label="fe fe-log-out"></i>
+					<span class="sidemenu-label">Sign Out</span> 
+				</a> 
+			</li>
+		</ul>
+		<ul class="menu-nav nav" style="margin-left: 0px; margin-right: 0px;" th:if="${menuId==4}"> 
+  			<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'AE', 'AAE', 'ADE')"> 
+			<a class="nav-link" th:href="@{/sasportal}"> 
+				<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+				<path d="M 12 2 A 1 1 0 0 0 11.289062 2.296875 L 1.203125 11.097656 A 0.5 0.5 0 0 0 1 11.5 A 0.5 0.5 0 0 0 1.5 12 L 4 12 L 4 20 C 4 20.552 4.448 21 5 21 L 9 21 C 9.552 21 10 20.552 10 20 L 10 14 L 14 14 L 14 20 C 14 20.552 14.448 21 15 21 L 19 21 C 19.552 21 20 20.552 20 20 L 20 12 L 22.5 12 A 0.5 0.5 0 0 0 23 11.5 A 0.5 0.5 0 0 0 22.796875 11.097656 L 12.716797 2.3027344 A 1 1 0 0 0 12.710938 2.296875 A 1 1 0 0 0 12 2 z"></path></svg> -->
+				<i class="si si-home sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="SAS Portal" data-bs-original-title="si-home" aria-label="si-home"></i>
+				<span class="sidemenu-label">Home</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/userdashboard?menuId=4}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M10.5,13h-7C3.2,13,3,13.2,3,13.5v7C3,20.8,3.2,21,3.5,21h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,13.2,10.8,13,10.5,13z M10,20H4v-6h6V20z M10.5,3h-7C3.2,3,3,3.2,3,3.5v7C3,10.8,3.2,11,3.5,11h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,3.2,10.8,3,10.5,3z M10,10H4V4h6V10z M20.5,3h-7C13.2,3,13,3.2,13,3.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v-7C21,3.2,20.8,3,20.5,3z M20,10h-6V4h6V10z M20.5,16.5h-3v-3c0-0.3-0.2-0.5-0.5-0.5s-0.5,0.2-0.5,0.5v3h-3c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h3v3c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v-3h3c0.3,0,0.5-0.2,0.5-0.5S20.8,16.5,20.5,16.5z"></path></svg> -->
+					<i class="ti-layers-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-original-title="ti-layers-alt" aria-label="ti-layers-alt"></i>
+					<span class="sidemenu-label">Dashboard</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li> 
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="ti-harddrives sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-harddrives" aria-label="ti-harddrives"></i> 
+					<span class="sidemenu-label">Total Complaints</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="ti-cloud-up sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-cloud-up" aria-label="ti-cloud-up"></i>
+					<span class="sidemenu-label">Upload Reply For CGRF Notice</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> --> 
+					<i class="ti-share sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-share" aria-label="ti-share"></i>
+					<span class="sidemenu-label">Notice Replies</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-cloud-off sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-cloud-off" aria-label="fe fe-cloud-off"></i> 
+					<span class="sidemenu-label">Orders Rejected</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fa fa-bullhorn sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-bullhorn" aria-label="fa fa-bullhorn"></i> 
+					<span class="sidemenu-label">Hearing Notice</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="ti-cloud-up sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-cloud-up" aria-label="ti-cloud-up"></i> 
+					<span class="sidemenu-label">Upload Orders Implementation</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="ti-gift sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-gift" aria-label="ti-gift"></i> 
+					<span class="sidemenu-label">Orders Disposed Off</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" href="javascript:;"> 
+					<i class="ti-cloud-down sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="ti-cloud-down" aria-label="ti-cloud-down"></i> 
+					<span class="sidemenu-label">Download Orders Implementation</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/logout}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-log-out sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="fe fe-log-out" aria-label="fe fe-log-out"></i> 
+					<span class="sidemenu-label">Sign Out</span> 
+				</a> 
+			</li>
+		</ul>	
+		<ul class="menu-nav nav" style="margin-left: 0px; margin-right: 0px;" sec:authorize="hasAnyAuthority('DE','CGM','SE','AOE','AOR')"> 
+  			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/dashboard}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+					<path d="M10.5,13h-7C3.2,13,3,13.2,3,13.5v7C3,20.8,3.2,21,3.5,21h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,13.2,10.8,13,10.5,13z M10,20H4v-6h6V20z M10.5,3h-7C3.2,3,3,3.2,3,3.5v7C3,10.8,3.2,11,3.5,11h7c0.3,0,0.5-0.2,0.5-0.5v-7C11,3.2,10.8,3,10.5,3z M10,10H4V4h6V10z M20.5,3h-7C13.2,3,13,3.2,13,3.5v7c0,0.3,0.2,0.5,0.5,0.5h7c0.3,0,0.5-0.2,0.5-0.5v-7C21,3.2,20.8,3,20.5,3z M20,10h-6V4h6V10z M20.5,16.5h-3v-3c0-0.3-0.2-0.5-0.5-0.5s-0.5,0.2-0.5,0.5v3h-3c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5h3v3c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v-3h3c0.3,0,0.5-0.2,0.5-0.5S20.8,16.5,20.5,16.5z"></path></svg> -->
+					<i class="ti-layers-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Dashboard" data-bs-original-title="ti-layers-alt" aria-label="ti-layers-alt"></i>
+					<span class="sidemenu-label">Dashboard</span> 
+					<!-- <i class="angle fe fe-chevron-right"></i> --> 
+				</a> 
+			</li> 
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','CGM','SE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="si si-calculator sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="si-calculator" aria-label="si-calculator"></i> 
+					<span class="sidemenu-label">Application Status</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Application Status</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">NR Application Status</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTM Application Status</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Complaints Application Status</a></li>
+				</ul> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="fa fa-balance-scale sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-balance-scale" aria-label="fa fa-balance-scale"></i> 
+					<span class="sidemenu-label">CGRF</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub" sec:authorize="hasAnyAuthority('DE','SE')"> 
+					<li class="side-menu-label1"><a href="javascript:;">CGRF</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Total Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Upload Reply For CGRF Notice</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Notice Replies</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Orders Rejected</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Hearing Notice</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Upload Orders Implementation</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Orders Disposed Off</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Download Orders Implementation</a></li>
+				</ul>
+				<ul class="nav-sub" sec:authorize="hasAnyAuthority('CGM','AOE','AOR')"> 
+					<li class="side-menu-label1"><a href="javascript:;">CGRF</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Total Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Upload Reply For CGRF Notice</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Hearing Notice</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Order Implementation</a></li>
+					
+				</ul>
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','SE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="fe fe-camera-off sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-camera-off" aria-label="fe fe-camera-off"></i> 
+					<span class="sidemenu-label">Rejection Proposals</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Rejection Proposals</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">New Registration</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Complaints</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Apartment</a></li>
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">Status</a></li> 
+					
+				</ul> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','SE')"> 
+				<a class="nav-link with-sub" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,2H2.4993896C2.2234497,2.0001831,1.9998169,2.223999,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19.0006104C21.7765503,21.9998169,22.0001831,21.776001,22,21.5V2.4993896C21.9998169,2.2234497,21.776001,1.9998169,21.5,2z M8.5,21H3v-5.5h5.5V21z M8.5,14.5H3v-5h5.5V14.5z M8.5,8.5H3V3h5.5V8.5z M14.5,21h-5v-5.5h5V21z M14.5,14.5h-5v-5h5V14.5z M14.5,8.5h-5V3h5V8.5z M21,21h-5.5v-5.5H21V21z M21,14.5h-5.5v-5H21V14.5z M21,8.5h-5.5V3H21V8.5z"></path></svg> -->
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 509 512.19"><path fill-rule="nonzero" d="m244.45 267.64 228.14-3.67.13 11.84c.03 65.27-26.43 124.37-69.21 167.15-42.77 42.77-101.87 69.23-167.14 69.23-65.27 0-124.36-26.46-167.14-69.23C26.46 400.18 0 341.08 0 275.81c0-65.26 26.46-124.36 69.23-167.13C112.01 65.9 171.1 39.44 236.37 39.44h8.08v228.2zm30.01-33.1L275.36 0C404.54.5 509 105.35 509 234.54H274.46zm182.08 45.79-228.25 3.66V55.75C170.7 57.83 118.74 82.02 80.66 120.1c-39.85 39.85-64.5 94.91-64.5 155.71 0 60.82 24.65 115.87 64.5 155.72 39.85 39.85 94.9 64.5 155.71 64.5s115.87-24.65 155.72-64.5c38.86-38.86 63.26-92.18 64.45-151.2z"/></svg> -->
+					<i class="mdi mdi-autorenew sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-autorenew" aria-label="mdi-autorenew"></i> 
+					<span class="sidemenu-label">Revocation Proposals</span> 
+					<i class="angle fe fe-chevron-right"></i> 
+				</a> 
+				<ul class="nav-sub"> 
+					<li class="side-menu-label1"><a href="javascript:;">Revocation Proposals</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">New Registrations</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">LTMs</a></li> 
+					<li class="nav-sub-item"><a class="nav-sub-link" href="javascript:;">CCs</a></li>
+				</ul> 
+			</li>
+			
+			<li class="nav-item" sec:authorize="hasAuthority('DE')"> 
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="zmdi zmdi-city-alt sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="zmdi zmdi-city-alt" aria-label="zmdi zmdi-city-alt"></i> 
+					<span class="sidemenu-label">Sub Division Wise OTP Sent Report</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="si si-screen-smartphone sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="si-screen-smartphone" aria-label="si-screen-smartphone"></i> 
+					<span class="sidemenu-label">Request For OTP Generation Beyond Service Level And With In Application Validity</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="far fa-bell-slash sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="far fa-bell-slash" aria-label="far fa-bell-slash"></i> 
+					<span class="sidemenu-label">Rejected NRs with Meter Number</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="mdi mdi-backup-restore sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-backup-restore" aria-label="mdi-backup-restore"></i> 
+					<span class="sidemenu-label">Resend OTP for Revoked NRs</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAuthority('SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="zmdi zmdi-collection-text sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="zmdi zmdi-collection-text" aria-label="zmdi zmdi-collection-text"></i> 
+					<span class="sidemenu-label">Consumer Bill History</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="mdi mdi-battery-charging-60 sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="mdi-battery-charging-60" aria-label="mdi-battery-charging-60"></i> 
+					<span class="sidemenu-label">Pending Services at EBS</span> 
+				</a> 
+			</li>
+			<li class="nav-item" sec:authorize="hasAnyAuthority('DE','SE')">
+				<a class="nav-link" href="javascript:;"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-video sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-video" aria-label="fe fe-video"></i> 
+					<span class="sidemenu-label">Meter Search</span> 
+				</a> 
+			</li>
+			<li class="nav-item"> 
+				<a class="nav-link" th:href="@{/logout}"> 
+					<!-- <svg class="sidemenu-icon menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout"><path d="M12.59,13l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H3a1,1,0,0,0,0,2ZM12,2A10,10,0,0,0,3,7.55a1,1,0,0,0,1.8.9A8,8,0,1,1,12,20a7.93,7.93,0,0,1-7.16-4.45,1,1,0,0,0-1.8.9A10,10,0,1,0,12,2Z"></path></svg> -->
+					<i class="fe fe-log-out sidemenu-icon menu-icon" data-bs-toggle="tooltip" title="Sign Out" data-bs-original-title="fe fe-log-out" aria-label="fe fe-log-out"></i> 
+					<span class="sidemenu-label">Sign Out</span> 
+				</a> 
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

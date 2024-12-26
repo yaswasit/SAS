@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TGSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{/assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{/assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header side-header sticky" style="margin-bottom: -64px;"> 
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left"> 
+						<div th:replace="fragments/topheader :: topheader-left"></div>
+					</div> 
+					<div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div> 
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/topheader :: topheader-right"></div>
+						
+   					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Sidemenu --> 
+  			<div class="sticky" style="margin-bottom: -64px;"> 
+  				<div class="main-menu main-sidebar main-sidebar-sticky side-menu ps ps--active-y"> 
+  					<div class="main-sidebar-header main-container-1 active"> 
+  						<div class="sidemenu-logo"> 
+  							<a class="main-logo" href="index.html"> 
+  								<img th:src="@{/assets/img/brand/tsspdcl-sas-logo.png}" class="header-brand-img desktop-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon-light.png}" class="header-brand-img icon-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/logo.png}" class="header-brand-img desktop-logo" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon.png}" class="header-brand-img icon-logo" alt="logo"> 
+  							</a> 
+  						</div> 
+  						<div class="main-sidebar-body main-body-1 is-expanded"> 
+  							<div class="slide-left disabled active d-none" id="slide-left">
+  								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24">
+  								<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+  							</div> 
+  							<div th:replace="fragments/sidenav :: sasleftnav"></div>
+  							
+							<div class="slide-right" id="slide-right">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+							</div> 
+						</div> 
+					</div> 
+					<!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+					</div>
+					<div class="ps__rail-y" style="top: 0px; right: 0px; height: 945px;">
+						<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 631px;"></div>
+					</div> -->
+				</div> 
+			</div> 
+			<!-- End Sidemenu --> 
+  			<!-- Main Content--> 
+			<div class="main-content side-content pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body"> 
+						<!-- Page Header --> 
+						<div class="page-header"> 
+							<div> 
+								<h2 class="main-content-title tx-24 mg-b-5" th:text="${pageTitle}"></h2> 
+								<ol class="breadcrumb"> 
+									<li class="breadcrumb-item"><a href="javascript:;">Home</a></li> 
+									<li class="breadcrumb-item"><a href="javascript:;">New Registrations</a></li>
+									<li class="breadcrumb-item active" aria-current="page" th:text="${pageTitle}"></li>
+								</ol>
+							</div> 
+						</div>
+						
+						<!-- End Page Header --> 
+											
+						<!--Row--> 
+						<div class="row row-sm"> 
+							<div class="col-lg-12"> 
+								
+								<div class="card custom-card"> 
+									<div class="card-header border-bottom"> 
+										<h3 class="card-title tx-18 d-flex justify-content-between align-items-center">
+											<label class="main-content-label mb-1 card-title-dark" th:text="${pageTitle}"></label>
+											<form name="f2" id="f2" method="GET">
+												<div class="btn-list">
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn" th:if='${pageTitle.equals("Verification of Documents")}' th:attr="onClick=|getNRTabInfo('@{/nsts/documentsverification/vd/1}','Document Verification')|">Document Verification</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn"  th:unless='${pageTitle.equals("Verification of Documents")}' th:attr="onClick=|getNRTabInfo('@{/nsts/documentsverification/vd/1}','Document Verification')|">Document Verification</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn"  th:if='${pageTitle.equals("Assign To Lineman")}'  th:attr="onClick=|getNRTabInfo('@{/nsts/getAssignToLineman/vd/1}','Assign to Lineman')|">Assign to Lineman</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn"  th:unless='${pageTitle.equals("Assign To Lineman")}'  th:attr="onClick=|getNRTabInfo('@{/nsts/getAssignToLineman/vd/1}','Assign to Lineman')|">Assign to Lineman</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn" th:if='${pageTitle.equals("Final Action by AE")}' th:attr="onClick=|getNRTabInfo('@{|/nsts/nscstobereleased/vd/1|}','Field Verification')|">Final Action by AE</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn" th:unless='${pageTitle.equals("Final Action by AE")}' th:attr="onClick=|getNRTabInfo('@{|/nsts/nscstobereleased/vd/1|}','Field Verification')|">Final Action by AE</button>
+													
+													<button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn text-end" th:if='${pageTitle.equals("NR Test Report")}' th:attr="onClick=|getNRTabInfo('@{/nsts/getNRTestReport/vd/1}','Test Report')|">Test Report</button>
+													<button id="btnShow" type="button" class="btn ripple btn-outline-primary datadelete-table-btn text-end" th:unless='${pageTitle.equals("NR Test Report")}' th:attr="onClick=|getNRTabInfo('@{/nsts/getNRTestReport/vd/1}','Test Report')|">Test Report</button>
+												</div>
+											</form>
+											<!-- <button id="btnShow" type="button" class="btn ripple btn-primary datadelete-table-btn text-end" th:attr="onClick=|showList()|">View List</button> -->
+										</h3>
+									</div> 
+									<div class="card-body card-body-nopad"> 
+										<div class="table-responsive"> 
+											<div id="recentorders_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+												<div class="row">
+													<div class="col-sm-12">
+														<div th:if="${#lists.isEmpty(docslist)}" class="alert alert-secondary d-flex align-items-center" role="alert"> <i class="fe fe-info me-2"></i> <div th:text="#{warning.norecords}">No Records found</div> </div>
+														
+														<table class="table table-bordered table-striped table-hover border-bottom mb-0 border dataTable no-footer" id="newreglist" role="grid" aria-describedby="newreglist_info" th:if="${not #lists.isEmpty(docslist)}"> 
+															<thead>
+																<tr role="row">
+																	<th>Sl.No.</th>
+																	<th>Registration</br>Number</th>
+																	<th>Registration</br>Date</th>
+																	<th>Consumer Name</th>
+																	<th>CAT</th>
+																	<!-- <th>Section</th> -->
+																	<th>To be Released</th>
+																	<th>Mobile No.</th>
+																</tr> 
+															</thead> 
+															<tbody> 
+																<tr th:each="docreg,iterationStatus : ${docslist}">
+																	<td class="font-weight-normal" th:text="${iterationStatus.count}"></td>
+																	<td class="font-weight-bold"><a class="docslist" href="javascript:;" th:text="${docreg.nrregno}" th:id="'doc'+${iterationStatus.count}" th:attr="onClick=|getNscTobeReleasedInfo('${docreg.nrregno}','@{/nsts/getNscTobeReleasedDetails/nsct}')|"></a></td>
+																	<td class="font-weight-normal" th:text="${docreg.nrregdate}"></td>
+																	<td class="font-weight-normal text-start" th:text="${docreg.consname}"></td>
+																	<td class="font-weight-normal text-center" th:text="${docreg.catdesc}"></td>
+																	<!-- <td class="font-weight-normal text-center" th:text="${docreg.secname}"></td> -->
+																	<td class="font-weight-normal text-center" th:text="${docreg.tobereldate}"></td>
+																	<td class="font-weight-normal text-center" th:text="${docreg.mobileno}"></td>
+																	
+																</tr>
+																
+															</tbody>
+														</table>
+														<!-- <div class="form-group row mb-0 justify-content-center"> 
+															<div class="col text-center"> 
+																<button class="btn ripple btn-primary" type="button" id="btnShow">Show List</button> 
+													 		</div> 
+														</div> --> 
+														
+													</div>
+												</div>
+											</div> 
+										</div> 
+										
+										<div class="table-responsive" id="consumerDetails">
+											<div id="registrationDetails"></div>
+											
+											<br/>
+											<div class="row row-sm">
+												<div class="row row-xs align-items-center mg-b-10"> 
+													<div class="col-md-4 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Status</label></div> 
+													<div class="col-md-3 mg-t-5 mg-md-t-0">
+														<select name="status" id="status" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true" onChange="getTable(this.value)">
+															<option value="x">Select</option>	
+															<option value="Release">Release</option>	
+															<option value="Rejected">Rejected</option>	
+															<option value="Pending">Consumer not Ready</option>						 
+														</select>
+													</div> 
+												</div> 
+											</div>
+											
+											<form method="post" th:object="${agltobrReleased}" name="f1" id="f1">
+												<input type="hidden" name="reg_Id" id="reg_Id"/>
+												<input type="hidden" name="pge" id="pge" value="others">
+												<input type="hidden" name="depttype" id="depttype"/>
+												<input type="hidden" name="pgfrom" id="pgfrom" value="agl">
+												<div id="release_form">
+													<!--  th:object="${greeting}"   th:action="@{/nsts/sendSMStoLTMLineman/otpc/${menuId}}""-->
+													
+													<div>
+														<h6 class="card-content-label mt-3 mb-1 tx-15 font-weight-bold">Service Details</h6>
+														<div class="text-wrap">
+															<div class="example"> 
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Service Number</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0"><span id="scno_span">
+																			<div class="input-group" id="xibox_divt">
+																				<input type='text' class="form-control" name='scno1' id='scno1' onkeydown="if(event.keyCode==9 || event.keyCode==13) return aglcheckIBox(this.id);" onKeyUp="goaglscno();">&nbsp;&nbsp;<input type='text' class="form-control" name='scno2' id='scno2' onKeyUp="javascript:this.value=this.value.toUpperCase();" onkeypress="if(event.keyCode==13 || event.keyCode==9 ) joinScno();">
+																			</div>
+																			<div id="xibox_divf">
+																				<input class="form-control" type="text" name="txtscno" id="txtscno"onKeyUp="javascript:this.value=this.value.toUpperCase();" onKeyDown='if(event.keyCode==13){event.keyCode=9; return true;}' >
+																			</div>
+																			</span>
+																		</div>
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Date of Release</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control fc-datepicker hasDatepicker" placeholder="DD/MM/YYYY" type="text" name="reldt" id="reldt">
+																		</div> 
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Feeder</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<select name="feedercode" id="feedercode" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="getStructureCode(this.value)">
+																				 
+																			</select>
+																		</div> 
+																	
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Structure Code</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<select name="structcode" id="structcode" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																				 
+																			</select>
+																		</div> 
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Select Cycle</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<select name="cycle" id="cycle" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																				 	<option value="">-Select-</option>
+																					<option value="A1">A1</option>
+																					<option value="A2">A2</option>
+																					<option value="A3">A3</option>
+																					<option value="B1">B1</option>
+																					<option value="B2">B2</option>
+																					<option value="B3">B3</option>
+																					<option value="M">Monthly</option>
+																			</select>
+																		</div> 
+																		 
+																	</div> 
+																</div>
+															<div>
+														</div>
+														</div>
+														<h6 class="card-content-label mt-3 mb-1 tx-15 font-weight-bold">Meter Details</h6>
+														<div class="text-wrap">
+															<div class="example"> 
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Meter Type</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<select name="mtrytype" id="mtrytype" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																				<option value="x">-Select-</option>
+																				<option value="PT" selected>NORMAL METER</option>
+																				<option value="CT">TRIVECTOR METER(CT)</option> 
+																			</select>
+																		</div>
+																		
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">TC Seal - 1</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control" type="text" name="TCs1" id="TCs1" maxlength="11">
+																		</div>
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">TC Seal - 2</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control" type="text" name="TCs2" id="TCs2" maxlength="11">
+																		</div>
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">MRB Page No.</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control" type="text" name="mrbpage" id="mrbpage" maxlength="3">
+																		</div>
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Meter Reader Code</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control" type="text" name="mcode" id="mcode" maxlength="">
+																		</div>
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Pole No.</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<input class="form-control" type="text" name="mrbpole" id="mrbpole" maxlength="">
+																		</div>
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Field staff Name</label></div> 
+																		<div class="col-md-2 mg-t-5 mg-md-t-0">
+																			<select name="linemenlist" id="linemenlist" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																				 
+																			</select>
+																		</div>
+																	</div> 
+																</div>
+																<div class="row row-sm">
+																	<div class="row row-xs align-items-center mg-b-10"> 
+																		<div class="col-md-3 text-end"><label class="mg-b-0 tx-semibold tx-14">Remarks</label></div> 
+																		<div class="col-md-6 mg-t-5 mg-md-t-0">
+																			<textarea class="form-control" placeholder="Remarks" rows="3" name="remarks" id="remarks" maxlength="300"></textarea>
+																		</div>
+																		
+																	</div> 
+																</div>
+															</div>
+														</div>				
+													</div>
+												</div>
+											</div>
+											<div id="rejected_form">
+												<h6 class="card-content-label mt-3 mb-1 tx-15 font-weight-bold">Rejected Details</h6>
+												<div class="text-wrap">
+													<div class="example"> 
+														<div class="row row-sm">
+															<div class="row row-xs align-items-center mg-b-10"> 
+																<div class="col-md-4 text-end"><label class="mg-b-0 tx-semibold tx-14">Rejected Reason</label></div> 
+																<div class="col-md-3 mg-t-5 mg-md-t-0">
+																	<textarea class="form-control" placeholder="Remarks" rows="3" name="reject_remarks" id="reject_remarks" maxlength="300"></textarea>
+																	<!-- <select name="rej_reason" id="rej_reason" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																			<option value="0" selected>-Select-</option>
+																			<option value="No Bore Well">No Bore Well</option>	 
+																	</select> -->
+																</div>
+																 
+															</div> 
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="faltdel_div"></div>
+											<div class="form-group row mb-0 mt-2 justify-content-center" id="btn_div"> 
+												<div class="col text-center"> 
+													<button class="btn ripple btn-primary" type="button" id="btnsubmit" onClick="agl_release_validate()">Submit</button> 
+										 		</div> 
+											</div>
+											</form>
+											<div>
+															
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--End row--> 
+					</div>
+				</div>
+			</div>
+		</div>		 
+	</div>
+	<!-- End Main Content--> 
+	<!-- Main Footer--> 
+	<div th:replace="fragments/footer :: sasfooter"></div>
+	<!--End Footer--> 
+	</div> 
+	<!-- End Page --> 
+	<!-- Back-to-top --> 
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+	</div>
+	<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{/assets/js/plugins/jquery.min.js}"></script>
+	<!-- <script th:src="@{/assets/js/plugins/jquery-3.3.1.min.js"></script> -->
+	<script th:src="@{/assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{/assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{/assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{/assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/select2.js}" type="text/javascript"></script>
+		
+	<script th:src="@{/assets/js/themeColors.js}"></script>
+	<script th:src="@{/assets/js/sticky.js}"></script>
+	<script th:src="@{/assets/js/switcher-styles.js}"></script>
+	<script th:src="@{/assets/js/custom.js}"></script>
+	<script th:src="@{/assets/js/switcher/switcher.js}"></script>
+	
+	<script th:src="@{/assets/js/sas.script.js}"></script>
+</body>
+</html>

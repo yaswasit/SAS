@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TGSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{/assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{/assets/css/sas.css?v=1.12}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{/assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header side-header sticky" style="margin-bottom: -64px;"> 
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left"> 
+						<div th:replace="fragments/topheader :: topheader-left"></div>
+					</div> 
+					<div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div> 
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/topheader :: topheader-right"></div>
+						
+   					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Sidemenu --> 
+  			<div class="sticky" style="margin-bottom: -64px;"> 
+  				<div class="main-menu main-sidebar main-sidebar-sticky side-menu ps ps--active-y"> 
+  					<div class="main-sidebar-header main-container-1 active"> 
+  						<div class="sidemenu-logo"> 
+  							<a class="main-logo" href="index.html"> 
+  								<img th:src="@{/assets/img/brand/tsspdcl-sas-logo.png}" class="header-brand-img desktop-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon-light.png}" class="header-brand-img icon-logo-dark" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/logo.png}" class="header-brand-img desktop-logo" alt="logo"> 
+  								<img th:src="@{/assets/img/brand/icon.png}" class="header-brand-img icon-logo" alt="logo"> 
+  							</a> 
+  						</div> 
+  						<div class="main-sidebar-body main-body-1 is-expanded"> 
+  							<div class="slide-left disabled active d-none" id="slide-left">
+  								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24">
+  								<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+  							</div> 
+  							<div th:replace="fragments/sidenav :: sasleftnav"></div>
+  							
+							<div class="slide-right" id="slide-right">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="#c9bebe" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+							</div> 
+						</div> 
+					</div> 
+					<!-- <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+						<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+					</div>
+					<div class="ps__rail-y" style="top: 0px; right: 0px; height: 945px;">
+						<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 631px;"></div>
+					</div> -->
+				</div> 
+			</div> 
+			<!-- End Sidemenu --> 
+  			<!-- Main Content--> 
+			<div class="main-content side-content pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body"> 
+						<!-- Page Header --> 
+						<div class="page-header"> 
+							<div> 
+								<h2 class="main-content-title tx-24 mg-b-5" th:text="${pageTitle}"></h2> 
+								<ol class="breadcrumb"> 
+									<li class="breadcrumb-item"><a href="javascript:;">Home</a></li> 
+									<li class="breadcrumb-item"><a href="javascript:;">Meter Management</a></li>
+									<li class="breadcrumb-item active" aria-current="page" th:text="${pageTitle}"></li>
+								</ol>
+							</div> 
+						</div>
+						
+						<!-- End Page Header --> 
+											
+						<!--Row--> 
+						<div class="row row-sm"> 
+							<div class="col-lg-12"> 
+								<div class="card custom-card"> 
+									<div class="card-header border-bottom"> 
+										<!-- <h3 class="card-title tx-18 d-flex justify-content-between align-items-center">
+											<label class="main-content-label mb-1 card-title-dark" th:text="${pageTitle}"></label>
+										</h3> -->
+										Area : <label class="main-content-label mb-1 card-title-dark" th:text="${area}"></label>
+									</div> 
+									<div class="card-body form-container" id="nrStatusBody"> 
+										<!-- <form method="post" th:action="@{/nsts/releasednrs}"  id="releasedNRForm">  th:action="@{/mm/InsertBurntMeterAllotment}" -->
+										<form method="post" name="f1" id="f1">
+											<div class="row row-xs align-items-center mg-b-10 mg-t-10"> 
+												<table class="table table-bordered table-striped table-hover border-bottom mb-0 border dataTable no-footer" id="newreglist" role="grid" aria-describedby="newreglist_info" th:if="${not #lists.isEmpty(masList)}"> 
+															<thead>
+																<tr role="row">
+																	<th width="5%">Sl.No.</th>
+																	<th width="5%">Select</th>
+																	<th width="10%">Service No.</th>
+																	<th width="10%">CAT</th>
+																	<th width="20%">Load</th>
+																	<th width="10%">Phase</th>
+																	<th width="10%">Exception Date</th>
+																	<th width="10%">Meter Burnt In The Field<br/>(If selected yes it moves to Allotment)</th>
+																	<th width="10%">Mobile</th>
+																</tr> 
+															</thead> 
+															<tbody> 
+																<tr th:each="masl,iterationStatus : ${masList}">
+																	<td class="font-weight-normal" th:text="${iterationStatus.count}"></td>
+																	<td class="font-weight-normal">
+																		<input type="checkbox" th:name="'chk' + ${iterationStatus.count}" th:id="'chk' + ${iterationStatus.count}" class="checkbox">
+																		
+																		<input type="hidden" th:name="'CTSCNO' + ${iterationStatus.count}" th:id="'CTSCNO' + ${iterationStatus.count}" th:value="${masl.CTSCNO}" size="10" readonly/>
+																		<input type="hidden" th:id="'CTUKSCNO' + ${iterationStatus.count}" th:name="'CTUKSCNO' + ${iterationStatus.count}" th:value="${masl.CTUKSCNO}"/>
+																		<input type="hidden" th:id="'CTBILSTAT' + ${iterationStatus.count}" th:name="'CTBILSTAT' + ${iterationStatus.count}" th:value="${masl.CTBILSTAT}"/>
+																		<input type="hidden" th:id="'CTNAME' + ${iterationStatus.count}" th:name="'CTNAME' + ${iterationStatus.count}" th:value="${masl.CTNAME}"/>
+																		<input type="hidden" th:id="'CTPHONE' + ${iterationStatus.count}" th:name="'CTPHONE' + ${iterationStatus.count}" th:value="${masl.CTPHONE}"/>
+																		<input type="hidden" th:id="'CTCAT' + ${iterationStatus.count}" th:name="'CTCAT' + ${iterationStatus.count}" th:value="${masl.CTCAT}"/>
+																		<input type="hidden" th:id="'CTSUBCAT' + ${iterationStatus.count}" th:name="'CTSUBCAT' + ${iterationStatus.count}" th:value="${masl.CTSUBCAT}"/>
+																		<input type="hidden" th:id="'CTCONLD' + ${iterationStatus.count}" th:name="'CTCONLD' + ${iterationStatus.count}" th:value="${masl.CTCONLD}"/>
+																		<input type="hidden" th:id="'CTCTRLD' + ${iterationStatus.count}" th:name="'CTCTRLD' + ${iterationStatus.count}" th:value="${masl.CTCTRLD}"/>
+																		<input type="hidden" th:id="'CTSECCD' + ${iterationStatus.count}" th:name="'CTSECCD' + ${iterationStatus.count}" th:value="${masl.CTSECCD}"/>
+																		<input type="hidden" th:id="'CTUKSECCD' + ${iterationStatus.count}" th:name="'CTUKSECCD' + ${iterationStatus.count}" th:value="${masl.CTUKSECCD}"/>
+																		<input type="hidden" th:id="'CTEROCD' + ${iterationStatus.count}" th:name="'CTEROCD' + ${iterationStatus.count}" th:value="${masl.CTEROCD}"/>
+																		<input type="hidden" th:id="'CTCIR_CODE' + ${iterationStatus.count}" th:name="'CTCIR_CODE' + ${iterationStatus.count}" th:value="${masl.CTCIR_CODE}"/>
+																		<input type="hidden" th:id="'CTBLDT' + ${iterationStatus.count}" th:name="'CTBLDT' + ${iterationStatus.count}" th:value="${masl.CTBLDT}"/>
+																		<input type="hidden" th:id="'CTAREACD' + ${iterationStatus.count}" th:name="'CTAREACD' + ${iterationStatus.count}" th:value="${masl.CTAREACD}"/>
+																		<input type="hidden" th:id="'CTCLUBREL' + ${iterationStatus.count}" th:name="'CTCLUBREL' + ${iterationStatus.count}" th:value="${masl.CTCLUBREL}"/>
+																	</td>
+																	<td class="font-weight-bold" th:text="${masl.CTSCNO}"></td>
+																	<td th:text="${masl.CTCAT}"></td>
+																	<td th:text="${masl.CTCTRLD}"></td>
+																	<td th:text="${masl.CTMTRPHASE}">
+																		<input type="hidden" th:id="'CTMTRPHASE' + ${iterationStatus.count}" th:name="'CTMTRPHASE' + ${iterationStatus.count}" th:value="${masl.CTMTRPHASE}" size='5' readonly/>
+																	</td>
+																	<td th:text="${masl.CTMTREXPDT}">
+																		<input type="hidden" th:id="'CTMTREXPDT' + ${iterationStatus.count}" th:name="'CTMTREXPDT' + ${iterationStatus.count}" th:value="${masl.CTMTREXPDT}" size='8' readonly/>
+																	</td>
+																	<td class="font-weight-normal">
+																		<select th:name="'approv' + ${iterationStatus.count}" th:id="'approv' + ${iterationStatus.count}" class="form-control select2-no-search select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+																			<option value="" selected>Choose one</option>
+																			<option value="Y">YES</option>
+																			<option value="N">NO</option>
+																		</select>
+																	</td>
+																	<td th:if='${masl.CTPHONE.equals("")}'>
+																		<input type="text" th:id="'CTMobile' + ${iterationStatus.count}" th:name="'CTMobile' + ${iterationStatus.count}" th:value="${masl.CTPHONE}" size='10'/>
+																	</td>
+																	<td th:unless='${masl.CTPHONE.equals("")}'>
+																		<input type="text" th:id="'CTMobile' + ${iterationStatus.count}" th:name="'CTMobile' + ${iterationStatus.count}" th:value="${masl.CTPHONE}" size='10' readonly/>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+														<input type="hidden" name="rows" id="rows"  th:value="${masList.size()}">
+											
+											</div>	  
+											 <div class="form-group row mb-0 justify-content-center"> 
+												<div class="col text-center"> 
+													<button class="btn ripple btn-primary" type="button" id="btn-search" onClick="saveAll();">Submit</button> 
+												</div> 
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!--End row--> 
+					</div>
+				</div>
+			</div>
+		</div>		 
+	</div>
+	<!-- End Main Content--> 
+	<!-- Main Footer--> 
+	<div th:replace="fragments/footer :: sasfooter"></div>
+	<!--End Footer--> 
+	</div> 
+	<!-- End Page --> 
+	<!-- Back-to-top --> 
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+	</div>
+	<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{/assets/js/plugins/jquery.min.js}"></script>
+	<!-- <script th:src="@{/assets/js/plugins/jquery-3.3.1.min.js"></script> -->
+	<script th:src="@{/assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{/assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{/assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{/assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{/assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{/assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+	<!--  Chart  -->
+	<script th:src="@{/assets/js/select2.js}" type="text/javascript"></script>
+		
+	<script th:src="@{/assets/js/themeColors.js}"></script>
+	<script th:src="@{/assets/js/sticky.js}"></script>
+	<script th:src="@{/assets/js/switcher-styles.js}"></script>
+	<script th:src="@{/assets/js/custom.js}"></script>
+	<script th:src="@{/assets/js/switcher/switcher.js}"></script>
+	
+	<script th:src="@{/assets/js/sasmm.script.js}"></script>
+</body>
+</html>

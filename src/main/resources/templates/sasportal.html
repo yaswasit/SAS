@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- <html lang="en" style="--primary01: rgba(77, 101, 217, 0.1); --primary02: rgba(77, 101, 217, 0.2); --primary03: rgba(77, 101, 217, 0.3); --primary04: rgba(77, 101, 217, 0.4); --primary05: rgba(77, 101, 217, 0.5); --primary06: rgba(77, 101, 217, 0.6); --primary07: rgba(77, 101, 217, 0.7); --primary08: rgba(77, 101, 217, 0.8); --primary09: rgba(77, 101, 217, 0.9); --primary005: rgba(77, 101, 217, 0.05);"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta name="description" content="Section Automation System">
+<meta name="author" content="TGSPDCL">
+
+<!-- Title --> 
+<title th:text="#{app.title}">TGSPDCL-SAS</title> 
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- Favicon --> 
+<link rel="icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}" />
+
+<!-- Style css--> 
+<link rel="stylesheet" th:href="@{assets/css/sas.css?v=1.12}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} --></style>
+<style type="text/css" media="print">
+<!-- body{display:none} -->
+</style> 
+<!--[if gte IE 5]><frame></frame><![endif]-->
+</head>
+
+<body class="main-body leftmenu ltr light-theme color-menu header-dark">
+	<div class="horizontalMenucontainer">
+		<!-- Loader --> 
+		<div id="global-loader"> <img th:src="@{assets/img/loader.svg}" class="loader-img" alt="Loader"> </div> 
+		<!-- End Loader --> 
+		<!-- Page --> 
+		<div class="page"> 
+			<!-- Main Header--> 
+			<div class="main-header sticky" style="margin-bottom: -64px;">  
+				<div class="main-container container-fluid"> 
+					<div class="main-header-left">  
+						<div th:replace="fragments/portaltopheader :: topheader-left"></div>
+					</div> 
+					<!-- <div class="main-header-center"> 
+						 <div th:replace="fragments/topheader :: topheader-center"></div>
+					</div>  -->
+					<div class="main-header-right"> 
+						 <div th:replace="fragments/portaltopheader :: topheader-right"></div>
+						
+   					</div> 
+  				</div> 
+  			</div> 
+  			<!-- End Main Header--> 
+  			<!-- Main Content--> 
+			<div class="main-content-portal pt-0"> 
+				<div class="main-container container-fluid"> 
+					<div class="inner-body text-white"> 
+						
+						<!--Row--> 
+						<div class="row row-sm mt-5"> 
+							<div class="col-sm-6 col-md-6 col-lg-6 portal-description">		
+
+								<h2 class="text-white">Welcome to <span class="dark-title text-shadow">Section Automation System</span></h2>
+								<p class="mt-5">Dear <b class="init-title" th:text="${session.userData.sasdesg}">AE</b>, <i th:text="${session.userData.sasofficeadd}">OPERATION/GOLCONDA</i></p>
+								<p class="mt-5"><span class="init-title">S</span>ection <span class="init-title">A</span>utomation <span class="init-title">S</span>ystem is mainly introduced to help the section officers in dispensing duties, monitoring and decision making in their day to day activities.</p>
+								<p class="mt-5">The observations and remarks on the activities are listed below:</p>
+								<ul>
+									<li>The Collection to be realized is against monthly target demand.</li>
+									<li>All the information in the test report of New Services must be entered properly, as the same is reflected in EBS for billing.</li>
+									<li>The meter changes so done shall be entered into the system before last day of every month.</li>
+									<li>The various DList reports like Lineman-Wise, Top-100 List, F-Class Services, Current Month Defaulters shall be attended.</li>
+								</ul>
+								<p class="mt-5">I wish that all the section officers to utilize the facility provided to fulfill the tasks with dedication and commitment.</p>
+								<p class="mt-5 dark-title text-end"><i>Chairman & Managing Director</i></p>
+								<p class="mt-5">For Any Help, Call <span class="init-title">9440813981</span></p>
+
+							</div> 
+
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<div class="d-flex flex-column flex-lg-row">
+									<div class="col-sm-3 mx-auto">
+										<div class="card grey">
+										<a id="1" th:href="@{/userdashboard?menuId=1}" title="New Service/Temp.Supply">
+											<div class="card-body">
+												<img th:src="@{assets/img/background/newservice.png}" />
+											</div>
+											<div class="card-footer green">New Service /</br> Temp.Supply</div>
+										</a>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="card grey">
+										<a id="2" th:href="@{/ccuserdashboard?menuId=2}" title="Consumer Complaints">
+											<div class="card-body">
+												<img th:src="@{assets/img/background/consumercomplaints.png}" />
+											</div>
+											<div class="card-footer green">Consumer</br>Complaints</div>
+										</a>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="card grey">
+										<a id="3" th:href="@{/mmdashboard?menuId=3}" title="Meter Management">
+											<div class="card-body">
+												<img th:src="@{assets/img/background/metermanagement.png}" />
+											</div>
+											<div class="card-footer green">Meter</br>Management</div>
+										</a>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="card grey">
+										<a id="4" th:href="@{/userdashboard?menuId=4}" title="Consumer Grievance Redressal Forum">
+											<div class="card-body">
+												<img th:src="@{assets/img/background/cgrf.png}" />
+											</div>
+											<div class="card-footer green">Consumer Grievance</br>Redressal Forum</div>
+										</a>
+										</div>
+									</div>
+								</div>
+							</div> 
+						</div> 
+						<!--End row--> 
+					 </div> 
+				</div> 
+			</div>
+			<!-- End Main Content--> 
+			<!-- Main Footer--> 
+			<div th:replace="fragments/footer :: sasfooter"></div>
+			<!--End Footer-->
+			</div> 
+			<!-- End Page --> 
+			<!-- Back-to-top --> 
+			<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a> 
+		</div>
+		<div class="main-navbar-backdrop"></div>
+	</div>
+	<!-- Jquery js--> 
+	<script th:src="@{assets/js/plugins/jquery.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{assets/js/plugins/bootstrap/bootstrap.min.js}"></script>
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+	<script th:src="@{assets/js/plugins/perfect-scrollbar/pscroll1.js}"></script>
+	<script th:src="@{assets/js/plugins/sidemenu/sidemenu.js}"></script>
+	<script th:src="@{assets/js/plugins/sidebar/sidebar.js}"></script>
+	<script th:src="@{assets/js/plugins/select2.min.js}"></script>
+	<!--  Data Table -->
+	<script th:src="@{assets/js/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script th:src="@{assets/js/plugins/datatable/dataTables.bootstrap5.js}"></script>
+	<script th:src="@{assets/js/plugins/datatable/dataTables.responsive.min.js}"></script>
+	<script th:src="@{assets/js/index.js}"></script>
+	
+	<!--  Chart  -->
+	<script th:src="@{assets/js/chart.chartjs.js}" type="text/javascript"></script>
+	<script th:src="@{assets/js/plugins/chart/chart.bundle.min.js}" type="text/javascript"></script>
+	<!-- <script th:src="@{assets/js/plugins/raphael/raphael.min.js}"></script>
+	<script th:src="@{assets/js/plugins/morris.js/morris.min.js}"></script> -->
+		
+	<script th:src="@{assets/js/themeColors.js}"></script>
+	<script th:src="@{assets/js/sticky.js}"></script>
+	<script th:src="@{assets/js/switcher-styles.js}"></script>
+	<script th:src="@{assets/js/custom.js}"></script>
+	<script th:src="@{assets/js/switcher/switcher.js}"></script>
+</body>
+</html>
